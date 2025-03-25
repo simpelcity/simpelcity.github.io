@@ -32,49 +32,31 @@ getRepos();
 const displayRepos = (repos) => {
     const userHome = `https://github.com/${username}`;
     filterInput.classList.remove('hide');
-    for (const repo of repos) {
-        if (repo.fork && hideForks) {
-            continue;
-        }
 
+    const listItem = document.querySelector('.repo-list');
+
+    listItem.innerHTML = repos.map(repo => {
         const langUrl = `${userHome}?tab=repositories&q=&language=${repo.language}`;
-        const starsUrl = `${userHome}/${repo.name}/stargazers`;
-        const forksUrl = `${userHome}/${repo.name}/network/members`;
-
-        const div = document.querySelector('.repo-list');
-
-
-        let listItem = document.createElement('div');
-        listItem.classList.add('repo');
-        listItem.innerHTML = `
-            <div class="card col-12 col-md-6 col-lg-4 col-xl-3">
-				<div class="card-body">
-					<h3 class='repo-name'>${repo.name}</h3>
-					<span class='repo-description'>${repo.description}</span>
-					<br/><br/>
-                    <a class="link-btn" href=${repo.html_url}>${devicons['Github']} Code</a>
-                    ${repo.language ? `<a href="${langUrl}"><span>${devicons[repo.language]}</span></a>` : ''}
-				</div>
-			</div>`;
-
-        if (repo.stargazers_count > 0) {
-            listItem.innerHTML += `<a href="${starsUrl}">
-            <span>⭐ ${repo.stargazers_count}</span></a>`;
-        }
-
-        if (repo.forks_count > 0) {
-            listItem.innerHTML += `<a href="${forksUrl}">
-            <span>${devicons['Git']} ${repo.forks_count}</span></a>`;
-        }
-
-        repoList.append(listItem);
-    }
+        return `
+        <div class="col-12 col-md-6 col-lg-4 py-2">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h3 class='repo-name text-info'>${repo.name}</h3>
+                    <span class='repo-description text-info'>${repo.description}</span>
+                    <br/><br/>
+                    <a class="link-btn text-info text-decoration-none" href=${repo.html_url}>${devicons['Github']} Code</a>
+                    ${repo.language ? `<a href="${langUrl}" class="text-info text-decoration-none"><span>${devicons[repo.language]}</span></a>` : ''}
+                    ${repo.homepage ? `<a class="link-btn text-info text-decoration-none" href=${repo.homepage}>${devicons['Chrome']} Live</a>` : ''}
+                </div>
+            </div>
+        </div>`;
+    }).join('');
 };
 
 // dynamic search
 filterInput.addEventListener('input', (e) => {
     const search = e.target.value;
-    const repos = document.querySelectorAll('.repo');
+    const repos = document.querySelectorAll('.card');
     const searchLowerText = search.toLowerCase();
 
     for (const repo of repos) {
