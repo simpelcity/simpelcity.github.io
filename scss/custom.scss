@@ -1,0 +1,36 @@
+$primary: #d1e8e2;
+$secondary: #d9b08c;
+
+#welcome {
+    background: rgb(17,100,102);
+    background: linear-gradient(163deg, rgba(17,100,102,1) 35%, rgba(44,53,49,1) 100%);
+    height: 100%;
+    width: 100%;
+    min-height: 720px;
+}
+
+header {
+    z-index: 1;
+}
+
+.fa-html5 {
+    color: #e34c26;
+}
+
+.fa-css3-alt {
+    color: #2965f1;
+}
+
+.fa-js {
+    color: #f0db4f
+}
+
+.fa-php {
+    color: #787cb5;
+}
+
+.fa-database {
+    color: #f29111;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
