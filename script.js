@@ -15,7 +15,7 @@ const getRepos = async () => {
             {
                 headers: {
                     Accept: 'application/vnd.github+json',
-                    Authorization: 'token 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'
+                    Authorization: 'token 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'
                 }
             }
         );
@@ -46,7 +46,7 @@ const displayRepos = (repos) => {
 
         let listItem = document.createElement('div');
         listItem.classList.add('repo');
-        div.innerHTML = `
+        listItem.innerHTML = `
             <div class="card col-12 col-md-6 col-lg-4 col-xl-3">
 				<div class="card-body">
 					<h3 class='repo-name'>${repo.name}</h3>
