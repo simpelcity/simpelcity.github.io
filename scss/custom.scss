@@ -1,5 +1,19 @@
 $primary: #d1e8e2;
-$secondary: #d9b08c;
+$secondary: #116466;
+$info: #ffcb9a;
+$dark: #2c3531;
+$card-border-color: $info;
+$card-border-width: 2px;
+$btn-color: $primary;
+$btn-border-radius: 0px;
+
+h1 {
+    font-size: 60px !important;
+}
+
+#about:hover {
+    border-color: $info !important;
+}
 
 #welcome {
     background: rgb(17,100,102);
@@ -9,24 +23,21 @@ $secondary: #d9b08c;
     min-height: 720px;
 }
 
-header {
-    z-index: 1;
+.hide {
+    /* '!important' is to make sure that when we add the class using JS, it takes precendence */
+    display: none !important;
 }
 
-.fa-html5 {
-    color: #e34c26;
+.filter-repos:focus {
+    box-shadow: none !important;
 }
 
-.fa-css3-alt {
-    color: #2965f1;
+.fw-500 {
+    font-weight: 500 !important;
 }
 
-.fa-js {
-    color: #f0db4f
-}
-
-.fa-php {
-    color: #787cb5;
+.fw-600 {
+    font-weight: 600 !important;
 }
 
 .fa-database {
