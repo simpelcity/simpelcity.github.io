@@ -15,7 +15,7 @@ const getRepos = async () => {
             {
                 headers: {
                     Accept: 'application/vnd.github+json',
-                    // Authorization: 'token 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'
+                    Authorization: 'token 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'
                 }
             }
         );
