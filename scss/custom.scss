@@ -1,26 +1,35 @@
 $primary: #d1e8e2;
 $secondary: #116466;
 $info: #ffcb9a;
-$dark: #2c3531;
+
+$card-color: $primary;
 $card-border-color: $info;
 $card-border-width: 2px;
 $btn-color: $primary;
 $btn-border-radius: 0px;
 
+$customColors: (
+    "gray": (
+        100: #626262,
+        200: #313131,
+        300: #222222
+    )
+);
+
+@each $name, $shades in $customColors {
+    .bg-#{$name} {
+        background-color: map-get($shades, 200) !important;
+    }
+
+    @each $shade, $color in $shades {
+        .bg-#{$name}-#{$shade} {
+            background-color: #{$color} !important;
+        }
+    }
+}
+
 h1 {
     font-size: 60px !important;
-}
-
-#about:hover {
-    border-color: $info !important;
-}
-
-#welcome {
-    background: rgb(17,100,102);
-    background: linear-gradient(163deg, rgba(17,100,102,1) 35%, rgba(44,53,49,1) 100%);
-    height: 100%;
-    width: 100%;
-    min-height: 720px;
 }
 
 .hide {
@@ -40,8 +49,139 @@ h1 {
     font-weight: 600 !important;
 }
 
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
 .fa-database {
     color: #f29111;
+}
+
+#welcome {
+    background: rgb(17,100,102);
+    background: linear-gradient(336deg, rgba(17,100,102,1) 10%, rgba(44,53,49,1) 82%);
+    height: 100vh;
+    width: 100%;
+}
+
+.btn-about {
+    height: 55px;
+    font-size: 20px !important;
+}
+
+.btn-about::after {
+    content: '\f107';
+    font-family: fontAwesome;
+    position: relative;
+    left: 0.6rem;
+}
+
+.btn-about:hover {
+    border-color: $info !important;
+}
+
+.profession span:first-child::before {
+    content: '|';
+    color: rgba(255, 255, 255, 0.3);
+    padding: 0 12px;
+    font-weight: 400;
+}
+
+.profession span::after {
+    content: '|';
+    color: rgba(255, 255, 255, 0.3);
+    padding: 0 12px;
+    font-weight: 400;
+}
+
+.bi-person-circle {
+    font-size: 60px;
+}
+
+.info-about {
+    padding-left: 3rem !important;
+}
+
+#about {
+    padding: 8% 0;
+}
+
+.btn-projects {
+    height: 55px;
+    font-size: 20px !important;
+}
+
+.btn-projects::after {
+    content: '\f107';
+    font-family: fontAwesome;
+    position: relative;
+    left: 0.6rem;
+}
+
+.btn-projects:hover {
+    border-color: $info !important;
+    color: $info !important;
+}
+
+@media (max-width: 768px) {
+    .languages {
+        padding-bottom: 12px;
+    }
+
+    .certificates {
+        padding-top: 12px;
+    }
+
+    #welcome h1 {
+        font-size: 40px !important;
+    }
+
+    .profession {
+        flex-direction: column;
+    }
+
+    .profession span:first-child::before {
+        display: none;
+    }
+
+    .profession span::after {
+        display: none;
+    }
+
+    .info-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-picture {
+        width: 70px;
+        height: 70px;
+    }
+
+    .info-about {
+        padding: 0 !important;
+    }
+
+    #about {
+        padding: 8% 6%;
+    }
+
+    .btn-projects {
+        font-size: 15px !important;
+    }
+
+    .bit-academy-certificates > div {
+        font-size: 20.5px !important;
+    }
+
+    .repos {
+        padding: 0 6% !important;
+    }
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

@@ -13,10 +13,10 @@ const getRepos = async () => {
         res = await fetch(
             `https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`,
             {
-                headers: {
-                    Accept: 'application/vnd.github+json',
-                    Authorization: 'token '
-                }
+                // headers: {
+                //     Accept: 'application/vnd.github+json',
+                //     Authorization: 'token <YOUR_TOKEN_HERE>'
+                // }
             }
         );
         let data = await res.json();
@@ -39,14 +39,16 @@ const displayRepos = (repos) => {
         const langUrl = `${userHome}?tab=repositories&q=&language=${repo.language}`;
         return `
         <div class="col-12 col-md-6 col-lg-4 py-2">
-            <div class="card bg-dark">
+            <div class="card card-repo bg-gray-300 h-100">
                 <div class="card-body">
                     <h3 class='repo-name text-info'>${repo.name}</h3>
                     <span class='repo-description text-info'>${repo.description}</span>
                     <br/><br/>
-                    <a class="link-btn text-info text-decoration-none" href=${repo.html_url}>${devicons['Github']} Code</a>
-                    ${repo.language ? `<a href="${langUrl}" class="text-info text-decoration-none"><span>${devicons[repo.language]}</span></a>` : ''}
-                    ${repo.homepage ? `<a class="link-btn text-info text-decoration-none" href=${repo.homepage}>${devicons['Chrome']} Live</a>` : ''}
+                    <div class="d-flex justify-content-center gap-3">
+                        <a class="link-btn text-info text-decoration-none d-flex gap-1" href=${repo.html_url}>${devicons['Github']} <p class="my-auto">Code</p></a>
+                        ${repo.language ? `<a href="${langUrl}" class="text-info text-decoration-none d-flex gap-1">${devicons[repo.language]}<p class="my-auto">${repo.language}</p></a>` : ''}
+                        ${repo.homepage ? `<a class="link-btn text-info text-decoration-none d-flex gap-1" href=${repo.homepage}>${devicons['Chrome']} <p class="my-auto">Live</p></a>` : ''}
+                    </div>
                 </div>
             </div>
         </div>`;
@@ -72,8 +74,8 @@ filterInput.addEventListener('input', (e) => {
 // for programming language icons
 const devicons = {
     Git: '<i class="devicon-git-plain" style="color: #555"></i>',
-    Github: '<i class="devicon-github-plain" style="color: #1688f0"></i>',
-    Chrome: '<i class="devicon-chrome-plain" style="color: #1688f0"></i>',
+    Github: '<i class="devicon-github-original my-auto text-white"></i>',
+    Chrome: '<i class="devicon-chrome-plain my-auto text-white"></i>',
     Assembly: '<i class="devicon-labview-plain colored"></i> Assembly',
     'C#': '<i class="devicon-csharp-plain colored"></i> C#',
     'C++': '<i class="devicon-cplusplus-plain colored"></i> C++',
@@ -82,7 +84,7 @@ const devicons = {
     CoffeeScript:
         '<i class="devicon-coffeescript-plain colored"></i> CoffeeScript',
     Crystal: '<i class="devicon-crystal-plain colored"></i> Crystal',
-    CSS: '<i class="devicon-css3-plain colored"></i> CSS',
+    CSS: '<i class="devicon-css3-plain colored my-auto"></i>',
     Dart: '<i class="devicon-dart-plain colored"></i> Dart',
     Dockerfile: '<i class="devicon-docker-plain colored"></i> Docker',
     Elixir: '<i class="devicon-elixir-plain colored"></i> Elixir',
@@ -91,10 +93,10 @@ const devicons = {
     'F#': '<i class="devicon-fsharp-plain colored"></i> F#',
     Go: '<i class="devicon-go-plain colored"></i> Go',
     Groovy: '<i class="devicon-groovy-plain colored"></i> Groovy',
-    HTML: '<i class="devicon-html5-plain colored"></i> HTML',
+    HTML: '<i class="devicon-html5-plain colored my-auto"></i>',
     Haskell: '<i class="devicon-haskell-plain colored"></i> Haskell',
     Java: '<i class="devicon-java-plain colored" style="color: #ffca2c"></i> Java',
-    JavaScript: '<i class="devicon-javascript-plain colored"></i> JavaScript',
+    JavaScript: '<i class="devicon-javascript-plain colored my-auto"></i>',
     Julia: '<i class="devicon-julia-plain colored"></i> Julia',
     'Jupyter Notebook': '<i class="devicon-jupyter-plain colored"></i> Jupyter',
     Kotlin: '<i class="devicon-kotlin-plain colored" style="color: #796bdc"></i> Kotlin',
@@ -106,7 +108,7 @@ const devicons = {
     ObjectiveC: '<i class="devicon-objectivec-plain colored"></i> ObjectiveC',
     OCaml: '<i class="devicon-ocaml-plain colored"></i> OCaml',
     Perl: '<i class="devicon-perl-plain colored"></i> Perl',
-    PHP: '<i class="devicon-php-plain colored"></i> PHP',
+    PHP: '<i class="devicon-php-plain colored my-auto"></i>',
     PLSQL: '<i class="devicon-sqlite-plain colored"></i> PLSQL',
     Processing:
         '<i class="devicon-processing-plain colored" style="color: #0096D8"></i> Processing',
@@ -114,7 +116,7 @@ const devicons = {
     R: '<i class="devicon-r-plain colored"></i> R',
     Ruby: '<i class="devicon-ruby-plain colored"></i> Ruby',
     Rust: '<i class="devicon-rust-plain colored" style="color: #DEA584"></i> Rust',
-    Sass: '<i class="devicon-sass-original colored"></i> Sass',
+    Sass: '<i class="devicon-sass-original colored my-auto"></i>',
     Scala: '<i class="devicon-scala-plain colored"></i> Scala',
     Shell: '<i class="devicon-bash-plain colored" style="color: #89E051"></i> Shell',
     Solidity: '<i class="devicon-solidity-plain colored"></i> Solidity',
@@ -126,3 +128,19 @@ const devicons = {
     'Vim Script': '<i class="devicon-vim-plain colored"></i> Vim Script',
     Vue: '<i class="devicon-vuejs-plain colored"></i> Vue'
 };
+
+document.querySelector('.btn-about').addEventListener('click', function (e) {
+    e.preventDefault(); // This prevents the default anchor behavior
+    document.querySelector('#about').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
+
+document.querySelector('.btn-projects').addEventListener('click', function (e) {
+    e.preventDefault(); // This prevents the default anchor behavior
+    document.querySelector('#projects').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
