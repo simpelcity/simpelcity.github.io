@@ -12,9 +12,7 @@
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="https://kit.fontawesome.com/555ef81382.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/style.css">
@@ -24,8 +22,10 @@
 	<style>
 		body {
 			font-family: IBM Plex Mono;
+			background-color: #313131;
 		}
 	</style>
+	
 </head>
 
 <body class="overflow-x-hidden h-100 w-100 m-0 p-0">
@@ -42,7 +42,7 @@
 					<span class="text-primary">Front-end Student</span>
 				</h3>
 			</div>
-			<a href="#about" class="fw-bold btn btn-about border border-primary border-3 px-4 d-flex align-items-center">About Me</a>
+			<a href="#about" class="btn btn-about border border-primary border-3 px-4 d-flex align-items-center fw-bold">About Me</a>
 		</section>
 		<section id="about" class="d-flex flex-column align-items-center bg-gray-200">
 			<div class="about col-12 col-md-7 row d-flex justify-content-center">
@@ -58,7 +58,7 @@
 						<p class="fs-4 fw-500">Whats'up, my name is Wietse. I am 17 years old and I live in the Netherlands. I am currently studying to become a Full-stack Developer.</p>
 					</div>
 				</div>
-				<a href="#projects" class="btn btn-projects border border-primary border-3 w-auto px-4  fw-bold d-flex align-items-center">Check out my projects here</a>
+				<a href="#projects" class="btn btn-projects border border-primary border-3 w-auto px-4 fw-bold d-flex align-items-center">Check out my projects here</a>
 			</div>
 			<div class="skills container text-center mt-5">
 				<h1 class="mb-3">Skills</h1>
@@ -209,20 +209,54 @@
 					</div>
 				</div>
 			</div>
+			<a href="#contact" class="btn btn-contact border border-primary border-3 w-auto px-4 mt-4 fw-bold d-flex align-items-center">Contact Me</a>
 		</section>
 		<section id="projects" class="text-center py-5 bg-gray-300">
 			<h1 class="mb-3">Projects</h1>
 			<div class="repos p-4 container">
-				<input type="text" class="filter-repos form-control border border-info border-2 bg-transparent text-primary mb-3" placeholder="Search Projects" data-bs-theme="dark">
+				<input type="text" class="filter-repos form-control border border-info rounded border-2 bg-transparent text-primary mb-3" placeholder="Search Projects" data-bs-theme="dark">
 				<div class="repo-list row"></div>
 			</div>
 		</section>
-		<section id="contact">
-
+		<section id="contact" class="text-center text-primary bg-gray-200">
+			<div class="row justify-content-center">
+				<i class="bi bi-envelope-paper w-auto"></i>
+				<h1 class="mb-3 text-secondary">Contact</h1>
+				<p class="text-gray-100">Fields marked with * are required</p>
+			</div>
+			<div class="row d-flex justify-content-center">
+				<div class="col-12 col-md-6 mt-2">
+					<form action="https://formspree.io/f/xeoanybd" method="POST" data-bs-theme="dark">
+						<div class="mb-3">
+							<input class="form-control form-input" type="text" name="name" required placeholder="Name*">
+						</div>
+						<div class="mb-3">
+							<input class="form-control form-input" type="email" name="email" required placeholder="Email*">
+						</div>
+						<div class="mb-3">
+							<textarea class="form-control form-input" rows="6" name="message" required placeholder="Your message here...*"></textarea>
+						</div>
+						<button type="submit" class="btn btn-send fs-5 fw-500 px-4 py-2">Send</button>
+					</form>
+				</div>
+			</div>
 		</section>
 	</main>
-	<footer>
-		<!-- place footer here -->
+	<footer class="bg-gray-200 text-primary">
+		<div class="container-fluid">
+			<div class="d-flex justify-content-center">
+				<div class="socials d-flex mb-2">
+					<a class="github" href="https://github.com/simpelcity"><i class="bi bi-github"></i></a>
+					<a class="discord" href="https://discord.com/users/760475405194625045"><i class="bi bi-discord"></i></a>
+					<a class="tiktok" href="https://tiktok.com/@simpelcity"><i class="bi bi-tiktok"></i></a>
+				</div>
+			</div>
+			<div class="d-flex justify-content-center">
+				<p class="copyright"><i class="bi bi-c-circle"></i> Copyright 2025 Simpelcity</p>
+				<p class="design">Designed and developed by <a href="https://github.com/simpelcity">Simpelcity</a></p>
+				<p class="hosted">Hosted by <a href="https://github.com">github.com</a></p>
+			</div>
+		</div>
 	</footer>
 	<!-- Bootstrap JavaScript Libraries -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
