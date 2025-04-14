@@ -129,17 +129,17 @@ const devicons = {
     Vue: '<i class="devicon-vuejs-plain colored"></i> Vue'
 };
 
-document.querySelector('.btn-about').addEventListener('click', function(a) {
-    a.preventDefault();
-    document.querySelector('#about').scrollIntoView({
+document.querySelector('.btn-projects').addEventListener('click', function(b) {
+    b.preventDefault();
+    document.querySelector('#projects').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
     });
 });
 
-document.querySelector('.btn-projects').addEventListener('click', function(b) {
-    b.preventDefault();
-    document.querySelector('#projects').scrollIntoView({
+document.querySelector('.btn-about').addEventListener('click', function(a) {
+    a.preventDefault();
+    document.querySelector('#about').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
     });
