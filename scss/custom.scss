@@ -1,6 +1,7 @@
 $primary: #d1e8e2;
 $secondary: #116466;
 $info: #ffcb9a;
+$light: whitesmoke;
 
 $card-color: $primary;
 $card-border-color: $info;
@@ -16,318 +17,409 @@ $input-padding-x: 1.5rem;
 $input-padding-y: 1rem;
 
 $customColors: (
-    "gray": (
-        100: #626262,
-        200: #313131,
-        300: #222222
-    )
+	"gray": (
+		100: #626262,
+		200: #313131,
+		300: #222222,
+	),
 );
 
 @each $name, $shades in $customColors {
-    .bg-#{$name} {
-        background-color: map-get($shades, 200) !important;
-    }
+	.bg-#{$name} {
+		background-color: map-get($shades, 200) !important;
+	}
 
-    @each $shade, $color in $shades {
-        .bg-#{$name}-#{$shade} {
-            background-color: #{$color} !important;
-        }
-    }
+	@each $shade, $color in $shades {
+		.bg-#{$name}-#{$shade} {
+			background-color: #{$color} !important;
+		}
+	}
 
-    @each $shade, $color in $shades {
-        .text-#{$name}-#{$shade} {
-            color: #{$color} !important;
-        }
-    }
+	@each $shade, $color in $shades {
+		.text-#{$name}-#{$shade} {
+			color: #{$color} !important;
+		}
+	}
 }
 
 h1 {
-    font-size: 60px !important;
+	font-size: 60px !important;
 }
 
 .hide {
-    /* '!important' is to make sure that when we add the class using JS, it takes precendence */
-    display: none !important;
+	/* '!important' is to make sure that when we add the class using JS, it takes precendence */
+	display: none !important;
 }
 
 .filter-repos:focus {
-    border: solid $primary 2px !important;
+	border: solid $primary 2px !important;
 }
 
 .fw-500 {
-    font-weight: 500 !important;
+	font-weight: 500 !important;
 }
 
 .fw-600 {
-    font-weight: 600 !important;
+	font-weight: 600 !important;
 }
 
 .fw-700 {
-    font-weight: 700 !important;
+	font-weight: 700 !important;
 }
 
 .fw-800 {
-    font-weight: 800 !important;
+	font-weight: 800 !important;
 }
 
-.fa-database {
-    color: #f29111;
+.active {
+	color: $info;
 }
 
 #welcome {
-    background: rgb(17,100,102);
-    background: linear-gradient(336deg, rgba(17,100,102,1) 10%, rgba(44,53,49,1) 82%);
-    height: 100vh;
-    width: 100%;
+	background: rgb(17, 100, 102);
+	background: linear-gradient(336deg, rgba(17, 100, 102, 1) 10%, rgba(44, 53, 49, 1) 82%);
+	height: 100vh;
+	width: 100%;
 }
 
 .btn-about {
-    height: 55px;
-    font-size: 20px !important;
+	height: 55px;
+	font-size: 20px !important;
 }
 
 .btn-about::after {
-    content: '\f107';
-    font-family: fontAwesome;
-    position: relative;
-    left: 0.6rem;
+	content: "\f107";
+	font-family: fontAwesome;
+	position: relative;
+	left: 0.6rem;
 }
 
 .btn-about:hover {
-    border-color: $info !important;
+	border-color: $info !important;
 }
 
 .profession span:first-child::before {
-    content: '|';
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 12px;
-    font-weight: 400;
+	content: "|";
+	color: rgba(255, 255, 255, 0.3);
+	padding: 0 10px 0 0;
+	font-weight: 400;
 }
 
 .profession span::after {
-    content: '|';
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 12px;
-    font-weight: 400;
+	content: "|";
+	color: rgba(255, 255, 255, 0.3);
+	padding: 0 10px;
+	font-weight: 400;
+}
+
+.profession span:last-child::after {
+	content: "|";
+	color: rgba(255, 255, 255, 0.3);
+	padding: 0 0 0 10px;
+	font-weight: 400;
 }
 
 .bi-person-circle {
-    font-size: 60px;
+	font-size: 60px;
 }
 
 .info-about {
-    padding-left: 3rem !important;
+	padding-left: 2rem !important;
 }
 
 #about {
-    padding: 8% 0;
+	padding: 8% 0;
 }
 
 .btn-projects {
-    height: 55px;
-    font-size: 20px !important;
+	height: 55px;
+	font-size: 20px !important;
 }
 
 .btn-projects::after {
-    content: '\f107';
-    font-family: fontAwesome;
-    position: relative;
-    left: 0.6rem;
+	content: "\f107";
+	font-family: fontAwesome;
+	position: relative;
+	left: 0.6rem;
 }
 
 .btn-projects:hover {
-    border-color: $secondary !important;
-    color: $secondary !important;
+	border-color: $secondary !important;
+	color: $secondary !important;
 }
 
-#projects {
-    min-height: 100vh;
+#languages-div .devicon-mysql-original {
+	color: #fff !important;
+}
+
+#languages-div > .php > div {
+	max-height: 48px !important;
+}
+
+#prev-page:hover,
+#next-page:hover,
+.pagination-page:hover {
+	cursor: pointer;
 }
 
 .btn-contact {
-    height: 55px;
-    font-size: 20px !important;
+	height: 55px;
+	font-size: 20px !important;
 }
 
 .btn-contact::after {
-    content: '\f107';
-    font-family: fontAwesome;
-    position: relative;
-    left: 0.6rem;
+	content: "\f107";
+	font-family: fontAwesome;
+	position: relative;
+	left: 0.6rem;
 }
 
 .btn-contact:hover {
-    border-color: $secondary !important;
-    color: $secondary !important;
+	border-color: $secondary !important;
+	color: $secondary !important;
+}
+
+#projects {
+	min-height: 100vh;
+}
+
+.chrome {
+	width: 18px;
+	height: 18px;
 }
 
 #contact {
-    padding: 60px;
-    min-height: 91vh;
+	padding: 60px;
+	min-height: 91vh;
 }
 
 .bi-envelope-paper {
-    font-size: 50px;
+	font-size: 50px;
 }
 
 .form-input:focus {
-    border-bottom: solid $secondary 2px !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+	border-bottom: solid $secondary 2px !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-top: none !important;
 }
 
 .form-input {
-    border-bottom: solid #626262 2px !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+	border-bottom: solid #626262 2px !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-top: none !important;
 }
 
 .btn-send {
-    border: solid #626262 3px !important;
+	border: solid #626262 3px !important;
 }
 
 .btn-send:hover {
-    border: solid $secondary 3px !important;
+	border: solid $secondary 3px !important;
 }
 
 .copyright::after {
-    content: '|';
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 6px;
-    font-weight: 400;
+	content: "|";
+	color: rgba(255, 255, 255, 0.3);
+	padding: 0 6px;
+	font-weight: 400;
 }
 
 .design::after {
-    content: '|';
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 6px;
-    font-weight: 400;
+	content: "|";
+	color: rgba(255, 255, 255, 0.3);
+	padding: 0 6px;
+	font-weight: 400;
 }
 
 .socials a {
-    margin: 0 6px;
-    font-size: 25px;
+	margin: 0 6px;
+	font-size: 25px;
 }
 
-.bi-envelope-paper:hover, .github:hover, .discord:hover, .tiktok:hover, .bi-person-circle:hover, .bi-c-circle:hover {
-    animation: shake 0.5s;
+.bi-envelope-paper:hover,
+.github:hover,
+.discord:hover,
+.tiktok:hover,
+.bi-person-circle:hover,
+.bi-c-circle:hover {
+	animation: shake 0.5s;
 }
 
 .bi-c-circle::after {
-    content: '';
-    padding: 0 3px;
+	content: "";
+	padding: 0 3px;
 }
 
-.github:hover, .discord:hover, .tiktok:hover {
-    color: $secondary;
+.github:hover,
+.discord:hover,
+.tiktok:hover {
+	color: $secondary;
 }
 
-.githubcom, .simpelcity {
-    color: $info;
-    text-decoration: none;
-    font-weight: bold;
+.githubcom,
+.simpelcity {
+	color: $info;
+	text-decoration: none;
+	font-weight: bold;
 }
 
-.githubcom:hover, .simpelcity:hover {
-    color: $secondary;
+.githubcom:hover,
+.simpelcity:hover {
+	color: $secondary;
 }
 
 .full-stack {
-    width: min-content;
+	width: min-content;
 }
 
 .certificates-row > .d-flex {
-    margin: 5px 0;
+	margin: 5px 0;
+}
+
+.unit-testing > div > span:last-child {
+	width: 60%;
+}
+
+.btn.active {
+	font-weight: bold !important;
+	background-color: $info !important;
+}
+
+#certificates-pagination > .btn:hover {
+	background-color: $secondary !important;
+	color: $info !important;
 }
 
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(3px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
 }
 
 @media (max-width: 768px) {
-    .languages {
-        padding-bottom: 12px;
-    }
+	.languages {
+		padding-bottom: 12px;
+	}
 
-    .certificates {
-        padding-top: 12px;
-    }
+	.certificates {
+		padding-top: 12px;
+	}
 
-    #welcome h1 {
-        font-size: 40px !important;
-    }
+	#welcome h1 {
+		font-size: 40px !important;
+	}
 
-    .profession {
-        flex-direction: column;
-    }
+	.profession {
+		flex-direction: column;
+	}
 
-    .profession span:first-child::before {
-        display: none;
-    }
+	.profession span::before {
+		display: none;
+	}
 
-    .profession span::after {
-        display: none;
-    }
+	.profession span::after {
+		display: none;
+	}
 
-    .info-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+	.info-content {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 
-    .profile-picture {
-        width: 70px;
-        height: 70px;
-    }
+	.profile-picture {
+		width: 100px;
+		height: 100px;
+	}
 
-    .info-about {
-        padding: 0 !important;
-    }
+	.info-img {
+		margin-bottom: 1rem;
+	}
 
-    #about {
-        padding: 8% 6%;
-    }
+	.info-about {
+		padding: 0 !important;
+	}
 
-    .btn-projects {
-        font-size: 15px !important;
-    }
+	#about {
+		padding: 8% 6%;
+	}
 
-    .bit-academy-certificates > div {
-        font-size: 20.5px !important;
-    }
+	.btn-projects {
+		font-size: 15px !important;
+	}
 
-    .repos {
-        padding: 0 6% !important;
-    }
+	.bit-academy-certificates > div {
+		font-size: 20.5px !important;
+	}
 
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-    }
+	.repos {
+		padding: 0 6% !important;
+	}
 
-    .design {
-        text-align: center;
-    }
+	.footer-bottom {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .design::after {
-        display: none;
-    }
+	.design {
+		text-align: center;
+	}
 
-    .copyright::after {
-        display: none;
-    }
+	.design::after {
+		display: none;
+	}
+
+	.copyright::after {
+		display: none;
+	}
+}
+
+@media (max-width: 992px) {
+	.info-content {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.info-about {
+		padding: 0 !important;
+	}
+
+	.info-img {
+		margin-bottom: 1rem;
+	}
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
