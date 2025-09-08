@@ -16,8 +16,7 @@ const getRepos = async () => {
 		res = await fetch(`https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`, {
 			headers: {
 				Accept: "application/vnd.github+json",
-				Authorization:
-					"token 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",
+				Authorization: "token <YOUR_TOKEN_HERE>",
 			},
 		});
 		let data = await res.json();
