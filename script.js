@@ -166,7 +166,7 @@ document.querySelector(".btn-contact").addEventListener("click", function (c) {
 	c.preventDefault();
 	document.querySelector("#contact").scrollIntoView({
 		behavior: "smooth",
-		block: "start",
+		block: "center",
 	});
 });
 
