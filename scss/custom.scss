@@ -94,8 +94,7 @@ h1 {
 	left: 0.6rem;
 }
 
-// .btn-about:hover,
-.btn-about:active {
+.btn-about:hover {
 	border-color: $info !important;
 }
 
@@ -145,8 +144,7 @@ h1 {
 	left: 0.6rem;
 }
 
-// .btn-projects:hover,
-.btn-projects:active {
+.btn-projects:hover {
 	border-color: $secondary !important;
 	color: $secondary !important;
 }
@@ -177,8 +175,7 @@ h1 {
 	left: 0.6rem;
 }
 
-// .btn-contact:hover,
-.btn-contact:active {
+.btn-contact:hover {
 	border-color: $secondary !important;
 	color: $secondary !important;
 }
@@ -407,6 +404,20 @@ h1 {
 
 	.copyright::after {
 		display: none;
+	}
+
+	.btn-about:active {
+		border-color: $info !important;
+	}
+
+	.btn-projects:active {
+		border-color: $secondary !important;
+		color: $secondary !important;
+	}
+
+	.btn-contact:active {
+		border-color: $secondary !important;
+		color: $secondary !important;
 	}
 }
 
