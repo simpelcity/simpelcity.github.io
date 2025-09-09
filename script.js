@@ -162,13 +162,13 @@ document.querySelector(".btn-projects").addEventListener("click", function (b) {
 	});
 });
 
-document.querySelector(".btn-contact").addEventListener("click", function (c) {
-	c.preventDefault();
-	document.querySelector("#contact").scrollIntoView({
-		behavior: "smooth",
-		block: "center",
-	});
-});
+// document.querySelector(".btn-contact").addEventListener("click", function (c) {
+// 	c.preventDefault();
+// 	document.querySelector("#contact").scrollIntoView({
+// 		behavior: "smooth",
+// 		block: "start",
+// 	});
+// });
 
 const certificates = [
 	{ name: "Command line", language: ["Shell"] },
