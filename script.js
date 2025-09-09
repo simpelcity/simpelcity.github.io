@@ -1,6 +1,5 @@
 // const { lang } = require("moment");
 // const { render } = require("sass");
-document.addEventListener("touchstart", function () {}, true);
 
 const username = "simpelcity";
 const maxPages = 3;
@@ -31,6 +30,13 @@ const displayRepos = (repos) => {
 
 	const listItem = document.querySelector(".repo-list");
 
+	if (!repos || repos.length === 0) {
+		listItem.innerHTML = "<p>No repositories found :(</p>";
+		return;
+	} else if (repos.name === undefined) {
+		listItem.innerHTML = "<p>Failed to fetch repositories :(</p>";
+	}
+
 	listItem.innerHTML = repos
 		.map((repo) => {
 			const langUrl = `${userHome}?tab=repositories&q=&language=${repo.language}`;
@@ -42,14 +48,12 @@ const displayRepos = (repos) => {
 			return `
         <div class="col-12 col-md-6 col-lg-4 py-2">
             <div class="card card-repo bg-gray-300 h-100">
-                <div class="card-body">
-                    <h3 class='repo-name text-info'>${repo.name}</h3>
+                <div class="card-body d-flex flex-column">
+                    <a href="${
+						repo.html_url
+					}" target="_blank" class='repo-name text-info fs-3 fw-500 text-decoration-none'>${repo.name}</a>
                     <span class='repo-description text-info'>${repo.description}</span>
-                    <br/><br/>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a class="link-btn text-info text-decoration-none d-flex align-items-center gap-1" href=${
-							repo.html_url
-						}>${langIcons["Github"]} <p class="my-auto">Code</p></a>
+                    <div class="d-flex justify-content-center gap-3 mt-auto">
                         ${
 							repo.language
 								? `<a href="${langUrl}" class="text-info text-decoration-none d-flex gap-1">

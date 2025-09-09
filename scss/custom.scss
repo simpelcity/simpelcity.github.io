@@ -405,20 +405,6 @@ h1 {
 	.copyright::after {
 		display: none;
 	}
-
-	.btn-about:active {
-		border-color: $info !important;
-	}
-
-	.btn-projects:active {
-		border-color: $secondary !important;
-		color: $secondary !important;
-	}
-
-	.btn-contact:active {
-		border-color: $secondary !important;
-		color: $secondary !important;
-	}
 }
 
 @media (max-width: 992px) {
