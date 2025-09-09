@@ -1,5 +1,6 @@
 // const { lang } = require("moment");
 // const { render } = require("sass");
+document.addEventListener("touchstart", function () {}, true);
 
 const username = "simpelcity";
 const maxPages = 3;
