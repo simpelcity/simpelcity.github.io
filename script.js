@@ -151,29 +151,29 @@ const langIcons = {
 	UML: '<i class="devicon-unifiedmodelinglanguage-plain colored"></i>',
 };
 
-document.querySelector(".btn-about").addEventListener("click", function (a) {
-	a.preventDefault();
-	document.querySelector("#about").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
+// document.querySelector(".btn-about").addEventListener("click", function (a) {
+// 	a.preventDefault();
+// 	document.querySelector("#about").scrollIntoView({
+// 		behavior: "smooth",
+// 		block: "start",
+// 	});
+// });
 
-document.querySelector(".btn-projects").addEventListener("click", function (b) {
-	b.preventDefault();
-	document.querySelector("#projects").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
+// document.querySelector(".btn-projects").addEventListener("click", function (b) {
+// 	b.preventDefault();
+// 	document.querySelector("#projects").scrollIntoView({
+// 		behavior: "smooth",
+// 		block: "start",
+// 	});
+// });
 
-document.querySelector(".btn-contact").addEventListener("click", function (c) {
-	c.preventDefault();
-	document.querySelector("#contact").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
+// document.querySelector(".btn-contact").addEventListener("click", function (c) {
+// 	c.preventDefault();
+// 	document.querySelector("#contact").scrollIntoView({
+// 		behavior: "smooth",
+// 		block: "start",
+// 	});
+// });
 
 const certificates = [
 	{ name: "Command line", language: ["Shell"] },
