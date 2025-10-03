@@ -13,12 +13,7 @@ const getRepos = async () => {
 	let repos = [];
 	let res;
 	for (let i = 1; i <= maxPages; i++) {
-		res = await fetch(`https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`, {
-			headers: {
-				Authorization:
-					"token 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",
-			},
-		});
+		res = await fetch(`https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`);
 		let data = await res.json();
 		repos = repos.concat(data);
 	}
