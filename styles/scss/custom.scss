@@ -42,12 +42,15 @@ $customColors: (
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 h1 {
 	font-size: 60px !important;
 }
 
 .hide {
-	/* '!important' is to make sure that when we add the class using JS, it takes precendence */
 	display: none !important;
 }
 
@@ -75,27 +78,13 @@ h1 {
 	color: $info;
 }
 
+/* welcome styling */
+
 #welcome {
 	background: rgb(17, 100, 102);
 	background: linear-gradient(336deg, rgba(17, 100, 102, 1) 10%, rgba(44, 53, 49, 1) 82%);
 	height: 100vh;
 	width: 100%;
-}
-
-.btn-about {
-	height: 55px;
-	font-size: 20px !important;
-}
-
-.btn-about::after {
-	content: "\f107";
-	font-family: fontAwesome;
-	position: relative;
-	left: 0.6rem;
-}
-
-.btn-about:hover {
-	border-color: $info !important;
 }
 
 .profession span:first-child::before {
@@ -119,6 +108,30 @@ h1 {
 	font-weight: 400;
 }
 
+/* about button styling */
+
+.btn-about {
+	height: 55px;
+	font-size: 20px !important;
+}
+
+.btn-about::after {
+	content: "\f107";
+	font-family: fontAwesome;
+	position: relative;
+	left: 0.6rem;
+}
+
+.btn-about:hover {
+	border-color: $info !important;
+}
+
+/* about styling */
+
+#about {
+	padding: 6% 0;
+}
+
 .bi-person-circle {
 	font-size: 60px;
 }
@@ -127,9 +140,7 @@ h1 {
 	padding-left: 2rem !important;
 }
 
-#about {
-	padding: 6% 0;
-}
+/* projects button styling */
 
 .btn-projects {
 	height: 55px;
@@ -149,12 +160,20 @@ h1 {
 	color: $secondary !important;
 }
 
+/* languages styling */
+
+#languages-div > .php > div {
+	max-height: 48px !important;
+}
+
 #languages-div .devicon-mysql-original {
 	color: #fff !important;
 }
 
-#languages-div > .php > div {
-	max-height: 48px !important;
+/* certificates styling */
+
+.unit-testing > div > span:last-child {
+	width: 60%;
 }
 
 #prev-page:hover,
@@ -162,6 +181,8 @@ h1 {
 .pagination-page:hover {
 	cursor: pointer;
 }
+
+/* contact button styling */
 
 .btn-contact {
 	height: 55px;
@@ -180,8 +201,16 @@ h1 {
 	color: $secondary !important;
 }
 
+/* projects styling */
+
 #projects {
 	min-height: 100vh;
+}
+
+.repo-name:hover,
+.language-name:hover,
+.site-name:hover {
+	color: $primary !important;
 }
 
 .chrome {
@@ -189,14 +218,18 @@ h1 {
 	height: 18px;
 }
 
+/* contact styling */
+
 #contact {
 	padding: 60px;
-	min-height: 91vh;
+	min-height: calc(100vh - 75.89px);
 }
 
 .bi-envelope-paper {
 	font-size: 50px;
 }
+
+/* contact form styling */
 
 .form-input:focus {
 	border-bottom: solid $secondary 2px !important;
@@ -220,6 +253,8 @@ h1 {
 	border: solid $secondary 3px !important;
 }
 
+/* footer styling */
+
 .copyright::after {
 	content: "|";
 	color: rgba(255, 255, 255, 0.3);
@@ -227,7 +262,7 @@ h1 {
 	font-weight: 400;
 }
 
-.design::after {
+.hosted::before {
 	content: "|";
 	color: rgba(255, 255, 255, 0.3);
 	padding: 0 6px;
@@ -239,58 +274,20 @@ h1 {
 	font-size: 25px;
 }
 
+.copyright,
+.design,
+.hosted {
+	margin-bottom: 0.4rem !important;
+}
+
+/*animations styling */
+
 .bi-envelope-paper:hover,
 .github:hover,
 .discord:hover,
 .tiktok:hover,
-.bi-person-circle:hover,
-.bi-c-circle:hover {
+.bi-person-circle:hover {
 	animation: shake 0.5s;
-}
-
-.bi-c-circle::after {
-	content: "";
-	padding: 0 3px;
-}
-
-.github:hover,
-.discord:hover,
-.tiktok:hover {
-	color: $secondary;
-}
-
-.githubcom,
-.simpelcity {
-	color: $info;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.githubcom:hover,
-.simpelcity:hover {
-	color: $secondary;
-}
-
-.full-stack {
-	width: min-content;
-}
-
-.certificates-row > .d-flex {
-	margin: 5px 0;
-}
-
-.unit-testing > div > span:last-child {
-	width: 60%;
-}
-
-.btn.active {
-	font-weight: bold !important;
-	background-color: $info !important;
-}
-
-#certificates-pagination > .btn:hover {
-	background-color: $secondary !important;
-	color: $info !important;
 }
 
 @keyframes shake {
@@ -329,17 +326,36 @@ h1 {
 	}
 }
 
-@media (max-width: 768px) {
-	.languages {
-		padding-bottom: 12px;
-	}
+/* icons styling */
 
-	.certificates {
-		padding-top: 12px;
-	}
+.bi-c-circle::after {
+	content: "";
+	padding: 0 3px;
+}
 
+.github:hover,
+.discord:hover,
+.tiktok:hover {
+	color: $secondary;
+}
+
+.githubcom,
+.simpelcity {
+	color: $info;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.githubcom:hover,
+.simpelcity:hover {
+	color: $secondary;
+}
+
+/* mobile styling */
+
+@media (max-width: 576px) {
 	#welcome h1 {
-		font-size: 40px !important;
+		font-size: 2.5rem !important;
 	}
 
 	.profession {
@@ -354,10 +370,8 @@ h1 {
 		display: none;
 	}
 
-	.info-content {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
+	#about {
+		padding: 8% 6%;
 	}
 
 	.profile-picture {
@@ -369,58 +383,157 @@ h1 {
 		margin-bottom: 1rem;
 	}
 
-	.info-about {
-		padding: 0 !important;
-	}
-
-	#about {
-		padding: 8% 6%;
-	}
-
 	.btn-projects {
-		font-size: 15px !important;
+		font-size: 1rem !important;
+	}
+
+	.languages {
+		padding-bottom: 1rem;
+	}
+
+	.certificates {
+		padding-top: 1rem;
 	}
 
 	.bit-academy-certificates > div {
-		font-size: 20.5px !important;
+		font-size: 1.3rem !important;
 	}
 
 	.repos {
 		padding: 0 6% !important;
 	}
 
-	.footer-bottom {
-		flex-direction: column;
-		align-items: center;
+	#contact {
+		min-height: calc(100vh - 136.67px);
 	}
 
 	.design {
 		text-align: center;
 	}
 
-	.design::after {
-		display: none;
-	}
-
 	.copyright::after {
 		display: none;
 	}
+
+	.hosted::before {
+		display: none;
+	}
 }
 
-@media (max-width: 992px) {
-	.info-content {
+/* mobile landscape styling */
+
+@media (min-width: 576px) and (max-width: 768px) {
+	#welcome h1 {
+		font-size: 2.5rem !important;
+	}
+
+	.profession {
 		flex-direction: column;
-		align-items: center;
-		text-align: center;
 	}
 
-	.info-about {
-		padding: 0 !important;
+	.profession span::before {
+		display: none;
 	}
 
-	.info-img {
-		margin-bottom: 1rem;
+	.profession span::after {
+		display: none;
+	}
+
+	.skills {
+		padding: 0 2.5rem !important;
+	}
+
+	.languages {
+		padding-bottom: 1rem;
+	}
+
+	.certificates {
+		padding-top: 1rem;
+	}
+
+	#contact {
+		min-height: calc(100vh - 136.67px);
 	}
 }
 
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+/* tablet styling */
+
+@media (min-width: 768px) and (max-width: 992px) {
+	#welcome h1 {
+		font-size: 2.5rem !important;
+	}
+
+	.profession {
+		flex-direction: column;
+	}
+
+	.profession span::before {
+		display: none;
+	}
+
+	.profession span::after {
+		display: none;
+	}
+
+	#about {
+		min-height: 100vh;
+	}
+
+	.skills {
+		padding: 0 2.5rem !important;
+	}
+
+	.languages {
+		padding-bottom: 1rem;
+	}
+
+	.certificates {
+		padding-top: 1rem;
+	}
+
+	#projects {
+		min-height: 100vh;
+	}
+
+	#contact {
+		min-height: calc(100vh - 106.28px);
+	}
+
+	.hosted::before {
+		display: none;
+	}
+}
+
+/* tablet landscape styling */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.profession {
+		flex-direction: column;
+		font-size: 1.9rem;
+	}
+
+	.profession span::before {
+		display: none;
+	}
+
+	.profession span::after {
+		display: none;
+	}
+
+	#projects {
+		min-height: 100vh;
+	}
+}
+
+/* desktop styling */
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+}
+
+@media (min-width: 1400px) {
+	.skills {
+		width: 80% !important;
+	}
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

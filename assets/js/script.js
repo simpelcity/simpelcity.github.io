@@ -13,7 +13,12 @@ const getRepos = async () => {
 	let repos = [];
 	let res;
 	for (let i = 1; i <= maxPages; i++) {
-		res = await fetch(`https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`);
+		res = await fetch(`https://api.github.com/users/${username}/repos?&sort=pushed&per_page=100&page=${i}`, {
+			headers: {
+				Authorization:
+					"token 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",
+			},
+		});
 		let data = await res.json();
 		repos = repos.concat(data);
 	}
@@ -46,7 +51,7 @@ const displayRepos = (repos) => {
 			}
 
 			return `
-        <div class="col-12 col-md-6 col-lg-4 py-2">
+        <div class="col-12 col-md-6 col-xl-4 py-2">
             <div class="card card-repo bg-gray-300 h-100">
                 <div class="card-body d-flex flex-column">
                     <a href="${
@@ -58,14 +63,14 @@ const displayRepos = (repos) => {
 							repo.language
 								? `<a href="${langUrl}" class="text-info text-decoration-none d-flex gap-1">
 									<div class="${phpIconSize()} d-flex align-items-center">${langIcons[repo.language]}</div>
-									<p class="my-auto">${repo.language}</p></a>`
+									<p class="my-auto language-name">${repo.language}</p></a>`
 								: ""
 						}
                         ${
 							repo.homepage
 								? `<a class="link-btn text-info text-decoration-none d-flex align-items-center gap-1" href=${repo.homepage}>
 								<img class="chrome" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg" />
-								<p class="my-auto">Site</p></a>`
+								<p class="my-auto site-name">Site</p></a>`
 								: ""
 						}
                     </div>
@@ -150,30 +155,6 @@ const langIcons = {
 	Bootstrap: '<i class="devicon-bootstrap-plain colored"></i>',
 	UML: '<i class="devicon-unifiedmodelinglanguage-plain colored"></i>',
 };
-
-document.querySelector(".btn-about").addEventListener("click", function (a) {
-	a.preventDefault();
-	document.querySelector("#about").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
-
-document.querySelector(".btn-projects").addEventListener("click", function (b) {
-	b.preventDefault();
-	document.querySelector("#projects").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
-
-document.querySelector(".btn-contact").addEventListener("click", function (c) {
-	c.preventDefault();
-	document.querySelector("#contact").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-	});
-});
 
 const certificates = [
 	{ name: "Command line", language: ["Shell"] },
@@ -264,7 +245,7 @@ function renderCertificatesPage(page) {
     	`;
 		certificatesDiv.appendChild(div);
 
-		if (currentPage === 3 && index === 2) {
+		if (currentPage === 3 && index === 3) {
 			div.classList.add("unit-testing");
 		}
 	});
