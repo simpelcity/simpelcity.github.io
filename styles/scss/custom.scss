@@ -507,6 +507,10 @@ h1 {
 /* tablet landscape styling */
 
 @media (min-width: 992px) and (max-width: 1200px) {
+	#welcome h1 {
+		font-size: 2.5rem !important;
+	}
+
 	.profession {
 		flex-direction: column;
 		font-size: 1.9rem;
