@@ -1,11 +1,11 @@
 {
-  "name": "simpelcity.github.io",
-  "version": "1.1.2",
+  "name": "simpelcity.github.io-projects",
+  "version": "1.0.0",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "sass --watch ./styles/scss/custom.scss ./styles/css/style.css",
-    "build": "sass ./styles/scss/custom.scss ./styles/css/style.css --style compressed"
+    "build": "sass ./projects/styles/scss/custom.scss ./projects/styles/css/style.css --style compressed"
   },
   "keywords": [],
   "author": "Simpelcity",

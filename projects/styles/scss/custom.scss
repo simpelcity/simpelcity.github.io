@@ -1,0 +1,15 @@
+$primary: #d1e8e2;
+$secondary: #116466;
+$info: #ffcb9a;
+$light: whitesmoke;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "IBM Plex Mono" !important;
+	background-color: #313131 !important;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
