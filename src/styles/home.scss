@@ -1,0 +1,82 @@
+@import "./variables.scss";
+
+#welcome {
+  background: rgb(17, 100, 102);
+  background: linear-gradient(336deg, rgba(17, 100, 102, 1) 10%, rgba(44, 53, 49, 1) 82%);
+}
+
+.profession span:first-child::before {
+  content: "|";
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 10px 0 0;
+  font-weight: 400;
+}
+
+.profession span::after {
+  content: "|";
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 10px;
+  font-weight: 400;
+}
+
+.profession span:last-child::after {
+  content: "|";
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 0 0 10px;
+  font-weight: 400;
+}
+
+.icon-person {
+  font-size: 3.75rem;
+}
+
+.hide {
+  display: none !important;
+}
+
+.repo-name:hover,
+.repo-lang:hover,
+.repo-site:hover {
+  color: $info !important;
+}
+
+.icon-contact {
+  font-size: 3rem;
+}
+
+.text-required {
+  color: #626262;
+}
+
+.form-input:focus {
+  border-color: $secondary !important;
+}
+
+.copyright,
+.design,
+.hosted {
+  margin-bottom: 0.4rem !important;
+}
+
+.github:hover,
+.discord:hover,
+.tiktok:hover,
+.simpelcity:hover,
+.githubcom:hover {
+  color: $secondary !important;
+}
+
+@media (max-width: 576px) {
+  .profession span::after,
+  .profession span:first-child::before,
+  .profession span:last-child::after {
+    content: "";
+  }
+
+  #welcome h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+}

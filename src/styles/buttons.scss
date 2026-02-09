@@ -1,0 +1,34 @@
+.btn:hover {
+  &:active {
+    color: $light !important;
+    background-color: $secondary !important;
+    border-color: $secondary !important;
+  }
+  color: $light !important;
+  background-color: $secondary !important;
+  border-color: $secondary !important;
+}
+
+.btn-about::after {
+  content: "\f107";
+  font-family: fontAwesome;
+  position: relative;
+}
+
+.btn-about:hover {
+  border-color: $info !important;
+  background-color: transparent !important;
+}
+
+.btn-projects::after {
+  content: "\f107";
+  font-family: fontAwesome;
+  position: relative;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:active,
+.dropdown-toggle:focus,
+.dropdown-toggle:hover:active {
+  background-color: transparent !important;
+}
