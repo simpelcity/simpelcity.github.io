@@ -140,7 +140,7 @@ export default function Home() {
           </div>
           <div className="info-content my-4 d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
             <div className="info-img d-flex align-items-center">
-              <Image src="/simpelcity.github.io/src/assets/images/Wietsegaming.png" alt="Simpelcity" roundedCircle width="120" height="120" />
+              <Image src="/src/assets/images/Wietsegaming.png" alt="Simpelcity" roundedCircle width="120" height="120" />
             </div>
             <div className="info-about w-75 ps-0 pt-4 ps-md-4">
               <p className="fs-4 m-0">
