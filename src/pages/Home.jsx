@@ -6,6 +6,7 @@ import CardCertificates from '@/components/CardCertificates'
 import ProjectGrid from '@/components/ProjectGrid'
 import ContactForm from "@/components/ContactForm";
 import { useOutletContext } from "react-router-dom";
+import profileImage from '@/assets/images/Wietsegaming.png';
 import '@/styles/home.scss'
 
 const langIcons = {
@@ -140,7 +141,7 @@ export default function Home() {
           </div>
           <div className="info-content my-4 d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
             <div className="info-img d-flex align-items-center">
-              <Image src="/src/assets/images/Wietsegaming.png" alt="Simpelcity" roundedCircle width="120" height="120" />
+              <Image src={profileImage} alt="Simpelcity" roundedCircle width="120" height="120" />
             </div>
             <div className="info-about w-75 ps-0 pt-4 ps-md-4">
               <p className="fs-4 m-0">
