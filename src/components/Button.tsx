@@ -1,14 +1,27 @@
 import Button from "react-bootstrap/Button";
 
+type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonSize = "sm" | "md" | "lg";
+
+interface ButtonProps {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  children: React.ReactNode;
+  border?: string;
+  text?: string;
+  classes?: string;
+  [key: string]: any;
+}
+
 export default function BSButton({
   children,
   border = "primary",
-  text = "light",
+  text = "primary",
   classes,
   variant = "primary",
   size = "md",
   ...props
-}) {
+}: ButtonProps) {
   const sizeStyles = {
     sm: { padding: "3px 6px" },
     md: { padding: "6px 12px" },

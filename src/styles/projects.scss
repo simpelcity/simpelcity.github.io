@@ -1,1 +1,5 @@
 @import "./variables.scss";
+
+.bg-blur {
+  backdrop-filter: blur(10px);
+}

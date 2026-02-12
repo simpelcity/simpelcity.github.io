@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import App from './App.jsx';
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
+import ProjectDetail from "./pages/[pid].jsx";
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "./styles/globals.scss";
@@ -13,11 +14,12 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/projects', element: <Projects /> },
+      { path: '/projects/:name', element: <ProjectDetail /> },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,

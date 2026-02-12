@@ -1,72 +1,14 @@
-import { Col, Row, Image, Card, Container, Dropdown } from 'react-bootstrap'
+import { Col, Row, Image, Container } from 'react-bootstrap'
 import BSButton from '@/components/Button'
 import { BsPersonCircle, BsEnvelopePaper } from "react-icons/bs";
 import CardLanguages from '@/components/CardLanguages'
 import CardCertificates from '@/components/CardCertificates'
-import ProjectGrid from '@/components/ProjectGrid'
+import FeaturedProjectsGrid from '@/components/FeaturedProjectsGrid'
 import ContactForm from "@/components/ContactForm";
 import { useOutletContext } from "react-router-dom";
 import profileImage from '@/assets/images/Wietsegaming.png';
+import { langIcons } from '@/constants/icons'
 import '@/styles/home.scss'
-
-const langIcons = {
-  Git: <i class="devicon-git-plain colored"></i>,
-  Github: <i class="devicon-github-original"></i>,
-  Chrome: <i class="devicon-chrome-plain text-white"></i>,
-  Assembly: <i class="devicon-labview-plain colored"></i>,
-  "C#": <i class="devicon-csharp-plain colored"></i>,
-  "C++": <i class="devicon-cplusplus-plain colored"></i>,
-  C: <i class="devicon-c-plain colored"></i>,
-  Clojure: <i class="devicon-clojure-plain colored"></i>,
-  CoffeeScript: <i class="devicon-coffeescript-plain colored"></i>,
-  Crystal: <i class="devicon-crystal-plain colored"></i>,
-  CSS: <i class="devicon-css3-plain colored"></i>,
-  Dart: <i class="devicon-dart-plain colored"></i>,
-  Dockerfile: <i class="devicon-docker-plain"></i>,
-  Elixir: <i class="devicon-elixir-plain colored"></i>,
-  Elm: <i class="devicon-elm-plain colored"></i>,
-  Erlang: <i class="devicon-erlang-plain colored"></i>,
-  "F#": <i class="devicon-fsharp-plain colored"></i>,
-  Go: <i class="devicon-go-plain colored"></i>,
-  Groovy: <i class="devicon-groovy-plain colored"></i>,
-  HTML: <i class="devicon-html5-plain colored"></i>,
-  Haskell: <i class="devicon-haskell-plain colored"></i>,
-  Java: <i class="devicon-java-plain colored" style="color: #ffca2c"></i>,
-  JavaScript: <i class="devicon-javascript-plain colored"></i>,
-  Julia: <i class="devicon-julia-plain colored"></i>,
-  "Jupyter Notebook": <i class="devicon-jupyter-plain colored"></i>,
-  Kotlin: <i class="devicon-kotlin-plain colored" style="color: #796bdc"></i>,
-  Latex: <i class="devicon-latex-plain colored"></i>,
-  Lua: <i class="devicon-lua-plain-wordmark colored" style="color: #0000d0"></i>,
-  Matlab: <i class="devicon-matlab-plain colored"></i>,
-  Nim: <i class="devicon-nixos-plain colored" style="color: #FFC200"></i>,
-  Nix: <i class="devicon-nixos-plain colored"></i>,
-  ObjectiveC: <i class="devicon-objectivec-plain colored"></i>,
-  OCaml: <i class="devicon-ocaml-plain colored"></i>,
-  Perl: <i class="devicon-perl-plain colored"></i>,
-  PHP: <i class="devicon-php-plain colored"></i>,
-  PLSQL: <i class="devicon-sqlite-plain colored"></i>,
-  MySQL: <i class="devicon-mysql-original"></i>,
-  Processing: <i class="devicon-processing-plain colored" style="color: #0096D8"></i>,
-  Python: <i class="devicon-python-plain colored" style="color: #3472a6"></i>,
-  R: <i class="devicon-r-plain colored"></i>,
-  React: <i class="devicon-react-original colored"></i>,
-  Ruby: <i class="devicon-ruby-plain colored"></i>,
-  Rust: <i class="devicon-rust-plain colored" style="color: #DEA584"></i>,
-  Sass: <i class="devicon-sass-original colored"></i>,
-  Scala: <i class="devicon-scala-plain colored"></i>,
-  Shell: <i class="devicon-bash-plain"></i>,
-  Solidity: <i class="devicon-solidity-plain colored"></i>,
-  Stylus: <i class="devicon-stylus-plain colored"></i>,
-  Svelte: <i class="devicon-svelte-plain colored"></i>,
-  Swift: <i class="devicon-swift-plain colored"></i>,
-  Terraform: <i class="devicon-terraform-plain colored"></i>,
-  TypeScript: <i class="devicon-typescript-plain colored"></i>,
-  "Vim Script": <i class="devicon-vim-plain colored"></i>,
-  Vue: <i class="devicon-vuejs-plain colored"></i>,
-  Bootstrap: <i class="devicon-bootstrap-plain colored"></i>,
-  UML: <i class="devicon-unifiedmodelinglanguage-plain colored"></i>,
-}
 
 const languages = [
   { name: "CSS", progress: 90, color: "#2965f1" },
@@ -78,7 +20,7 @@ const languages = [
   { name: "TypeScript", progress: 40, color: "#3178c6" },
 ];
 
-function sizeIcons(lang) {
+function sizeIcons(lang: { name: string; progress: number; color: string }) {
   if (lang.name === "PHP") return "fs-1"
   if (lang.name === "JavaScript") return "fs-2"
   if (lang.name === "MySQL") return "fs-3"
@@ -108,7 +50,7 @@ const certificates = [
   { name: "Frontend Development", language: ["React"] },
 ]
 
-function iconClass(lang) {
+function iconClass(lang: string) {
   if (lang === "PHP") return "fs-2"
   if (lang === "Shell") return "fs-3"
   if (lang === "JavaScript") return "rounded-3"
@@ -116,7 +58,7 @@ function iconClass(lang) {
 }
 
 export default function Home() {
-  const { height, navHeight } = useOutletContext();
+  const { height } = useOutletContext<{ height: number }>();
 
   return (
     <>
@@ -165,12 +107,11 @@ export default function Home() {
         </Container>
         <BSButton size="lg" variant="outline" classes="btn-projects d-flex column-gap-2 transition" href="#contact">contact me</BSButton>
       </section>
-      <section id="projects" className="text-center py-5 bg-dark-subtle">
-        <h1 className="mb-3">Projects</h1>
+      <section id="projects" className="text-center py-5 bg-dark-subtle min-vh-100">
+        <h1 className="mb-3">Recent projects</h1>
         <Container className="repos p-4">
-          <input type="text" className="filter-repos form-control border-0 rounded-0 shadow bg-dark text-primary mb-3 p-3" placeholder="Search Projects" data-bs-theme="dark" />
           <Row className="list-repos row-gap-4">
-            <ProjectGrid langIcons={langIcons} />
+            <FeaturedProjectsGrid langIcons={langIcons} />
           </Row>
         </Container>
       </section>

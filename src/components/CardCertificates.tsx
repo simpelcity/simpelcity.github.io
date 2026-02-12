@@ -1,8 +1,15 @@
 import { Dropdown, Card, Col, Row } from 'react-bootstrap'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useState } from 'react'
+import { LangIcons, Certificate } from '@/types'
 
-export default function CardCertificates({ certificates, langIcons, iconClass }) {
+interface CardCertificatesProps {
+  certificates: Certificate[];
+  langIcons: LangIcons;
+  iconClass: (lang: string) => string;
+}
+
+export default function CardCertificates({ certificates, langIcons, iconClass }: CardCertificatesProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -23,11 +30,11 @@ export default function CardCertificates({ certificates, langIcons, iconClass })
     }
   };
 
-  const goToPage = (pageNum) => {
+  const goToPage = (pageNum: number) => {
     setCurrentPage(pageNum);
   };
 
-  const languagesDiv = (languagesArray) => {
+  const languagesDiv = (languagesArray: string | string[]) => {
     const languageArray = Array.isArray(languagesArray) ? languagesArray : [languagesArray];
     return (
       <>
@@ -66,7 +73,7 @@ export default function CardCertificates({ certificates, langIcons, iconClass })
               <Col key={index} xs={12} md={6} className="my-2 px-2">
                 <div className="certificate-item d-flex align-items-center gap-2 bg-dark p-2 h-100">
                   {cert.language.length > 2 ? languagesDiv(cert.language) : null}
-                  {cert.language.length <= 2 ? cert.language.map((lang, idx) => (
+                  {cert.language.length <= 2 ? (Array.isArray(cert.language) ? cert.language : [cert.language]).map((lang, idx) => (
                     <span key={idx} className={iconClass(lang)}>
                       {langIcons[lang]}
                     </span>

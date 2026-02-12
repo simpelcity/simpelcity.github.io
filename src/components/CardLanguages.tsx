@@ -1,8 +1,15 @@
-import { Card } from 'react-bootstrap'
+import { Card, ProgressBar } from 'react-bootstrap'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useState } from 'react'
+import { LangIcons, Language } from '@/types'
 
-export default function CardLanguages({ languages, langIcons, sizeIcons }) {
+interface CardLanguagesProps {
+  languages: Language[];
+  langIcons: LangIcons;
+  sizeIcons: (lang: { name: string; progress: number; color: string }) => string;
+}
+
+export default function CardLanguages({ languages, langIcons, sizeIcons }: CardLanguagesProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
 
@@ -23,7 +30,7 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }) {
     }
   };
 
-  const goToPage = (pageNum) => {
+  const goToPage = (pageNum: number) => {
     setCurrentPage(pageNum);
   };
 
@@ -40,10 +47,10 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }) {
                 <span className={`${sizeIcons(lang)} d-flex`}>{langIcons[lang.name]}</span>
                 <p className="m-0 text-primary">{lang.name}</p>
               </div>
-              <div className="">
-                <div className="progress" role="progressbar" aria-label={lang.name + " progressbar"} ariavaluenow={lang.progress} aria-valuemin="0" ariavaluemax="100">
-                  <div className="progress-bar progress-bar-striped" style={{ width: lang.progress + '%', backgroundColor: lang.color }}></div>
-                </div>
+              <div>
+                <ProgressBar aria-label={lang.name + " progressbar"} className="" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
+                  <ProgressBar now={lang.progress} style={{ backgroundColor: lang.color }} />
+                </ProgressBar>
               </div>
             </div>
           ))}

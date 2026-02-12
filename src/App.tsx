@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useLocation } from "react-router-dom";
-import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { FaGithub, FaDiscord, FaTiktok } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa";
 import { useState, useEffect, useRef } from 'react'
@@ -7,15 +7,22 @@ import GoTop from '@/components/GoTop'
 
 export default function App() {
   const location = useLocation();
-  const [height, setHeight] = useState();
-  const observedDiv = useRef(null);
+  const [height, setHeight] = useState<number | undefined>();
+  const observedDiv = useRef<HTMLDivElement>(null);
   const sizesRef = useRef({ height: 0});
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+
     if (!observedDiv.current) return;
 
     const resizeObserver = new ResizeObserver(() => {
-      if (observedDiv.current.offsetHeight !== sizesRef.current.height) {
+      if (observedDiv.current && observedDiv.current.offsetHeight !== sizesRef.current.height) {
         sizesRef.current.height = observedDiv.current.offsetHeight;
         setHeight(observedDiv.current.offsetHeight);
       }
@@ -62,7 +69,7 @@ export default function App() {
   return (
     <>
       <Navbar className="position-fixed top-0 z-1 w-100 d-flex justify-content-center p-0">
-        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark w-25 rounded-5 mt-2 shadow' : ''}`} fluid>
+        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark rounded-5 mt-2 shadow' : ''} ${isMobile && scrollPosition > 20 ? 'w-75' : 'w-25'}`} fluid>
           <Nav className="d-flex column-gap-3 mx-auto">
             {navLinks.map(({ to, label }) => (
               <NavLink
@@ -82,7 +89,7 @@ export default function App() {
       <Outlet context={{ height }} />
 
       <footer className="bg-dark text-primary mt-auto" ref={observedDiv}>
-        <span id="footer-height" className={height}></span>
+        <span id="footer-height" className={height?.toString()}></span>
         <Container className="" fluid>
           <div className="d-flex justify-content-center">
             <div className="socials d-flex mb-2 column-gap-2">
@@ -107,7 +114,7 @@ export default function App() {
               </div>
             </div>
             <div className="hosted-div d-flex justify-content-center">
-              <p className="hosted">Hosted by <a class="githubcom text-info text-decoration-none fw-bold transition" href="https://github.com">github.com</a></p>
+              <p className="hosted">Hosted by <a className="githubcom text-info text-decoration-none fw-bold transition" href="https://github.com">github.com</a></p>
             </div>
           </div>
         </Container>
