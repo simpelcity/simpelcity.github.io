@@ -35,8 +35,8 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }: CardL
   };
 
   return (
-    <Card className="rounded-0 border-0 shadow bg-dark-subtle text-primary h-100">
-      <Card.Header className="text-primary text-center border border-top-0 border-start-0 border-end-0">
+    <Card className="rounded-0 border-0 shadow bg-dark text-white h-100">
+      <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Programming Languages</h2>
       </Card.Header>
       <Card.Body className="d-flex flex-column">
@@ -45,7 +45,7 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }: CardL
             <div key={lang.name.toLowerCase()} className={`${lang.name.toLowerCase()} ${index !== currentLanguages.length - 1 ? 'border-bottom border-2 border-info' : ''} ${index === 0 ? 'pb-3' : 'py-3'}`}>
               <div className="fs-4 fw-medium d-flex justify-content-center align-items-center gap-1 mb-2">
                 <span className={`${sizeIcons(lang)} d-flex`}>{langIcons[lang.name]}</span>
-                <p className="m-0 text-primary">{lang.name}</p>
+                <p className="m-0">{lang.name}</p>
               </div>
               <div>
                 <ProgressBar aria-label={lang.name + " progressbar"} className="" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>

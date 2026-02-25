@@ -66,20 +66,20 @@ export default function Home() {
 
       <section id="welcome" className="d-flex flex-column align-items-center justify-content-center vh-100">
         <Col xs={12} md={8} lg={6} className="d-flex flex-column align-items-center">
-          <h2 className="text-primary fs-1">Hey there,</h2>
+          <h2 className="text-light fs-1">Hey there,</h2>
           <h1 className="text-info text-center">I'm Simpelcity</h1>
           <h3 className="profession d-flex flex-column flex-md-row mb-4">
-            <span className="text-primary text-center">Full-stack Student</span>
-            <span className="text-primary text-center">Front-end Student</span>
+            <span className="text-light text-center">Full-stack Student</span>
+            <span className="text-light text-center">Front-end Student</span>
           </h3>
         </Col>
-        <BSButton aria-label="test" aria-labelledby="To top" size="lg" variant="outline" classes="btn-about d-flex column-gap-2 transition" href="#about">about me</BSButton>
+        <BSButton size="lg" variant="outline" classes="btn-about d-flex column-gap-2 transition" href="#about">about me</BSButton>
       </section>
-      <section id="about" className="d-flex flex-column align-items-center bg-dark py-5">
+      <section id="about" className="d-flex flex-column align-items-center bg-dark-subtle py-5">
         <Col xs={12} md={9} lg={7} className="about d-flex flex-column align-items-center">
           <div className="info-header d-flex flex-column align-items-center">
-            <BsPersonCircle className="icon-person" />
-            <h1 className="">About Me</h1>
+            <BsPersonCircle className="icon-person text-light" />
+            <h1 className="text-secondary">About Me</h1>
           </div>
           <div className="info-content my-4 d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
             <div className="info-img d-flex align-items-center">
@@ -88,14 +88,14 @@ export default function Home() {
             <div className="info-about w-75 ps-0 pt-4 ps-md-4">
               <p className="fs-4 m-0">
                 What's up, my name is Wietse. I am 18 years old and I live in the Netherlands. I am currently studying
-                to become a Full-stack Developer.
+                to become a Web Developer.
               </p>
             </div>
           </div>
           <BSButton size="lg" variant="outline" classes="btn-projects d-flex column-gap-2 transition" href="#projects">check out my projects here</BSButton>
         </Col>
         <Container className="skills text-center my-5" fluid>
-          <h1 className="mb-3">Skills</h1>
+          <h1 className="mb-3 text-secondary">Skills</h1>
           <Row className="row-gap-4">
             <Col xs={12} lg={4} xl={5} className="languages">
               <CardLanguages languages={languages} langIcons={langIcons} sizeIcons={sizeIcons} />
@@ -107,15 +107,15 @@ export default function Home() {
         </Container>
         <BSButton size="lg" variant="outline" classes="btn-projects d-flex column-gap-2 transition" href="#contact">contact me</BSButton>
       </section>
-      <section id="projects" className="text-center py-5 bg-dark-subtle min-vh-100">
-        <h1 className="mb-3">Recent projects</h1>
+      <section id="projects" className="text-center py-5 bg-dark min-vh-100">
+        <h1 className="mb-3 text-secondary">Recent projects</h1>
         <Container className="repos p-4">
           <Row className="list-repos row-gap-4">
             <FeaturedProjectsGrid langIcons={langIcons} />
           </Row>
         </Container>
       </section>
-      <section id="contact" className="text-center text-primary bg-dark p-5" style={{ minHeight: `calc(100vh - ${height}px)` }}>
+      <section id="contact" className="text-center text-light bg-dark-subtle p-5" style={{ minHeight: `calc(100vh - ${height}px)` }}>
         <Row className="d-flex justify-content-center w-100">
           <BsEnvelopePaper className="icon-contact w-auto" />
           <h1 className="mb-3 text-secondary">Contact</h1>

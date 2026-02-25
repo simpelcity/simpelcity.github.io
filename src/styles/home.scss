@@ -1,8 +1,8 @@
 @import "./variables.scss";
 
 #welcome {
-  background: rgb(17, 100, 102);
-  background: linear-gradient(336deg, rgba(17, 100, 102, 1) 10%, rgba(44, 53, 49, 1) 82%);
+  background: #aeadf0;
+  background: linear-gradient(336deg, $secondary 0%, $dark-subtle 100%);
 }
 
 .profession span:first-child::before {

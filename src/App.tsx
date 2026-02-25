@@ -9,7 +9,7 @@ export default function App() {
   const location = useLocation();
   const [height, setHeight] = useState<number | undefined>();
   const observedDiv = useRef<HTMLDivElement>(null);
-  const sizesRef = useRef({ height: 0});
+  const sizesRef = useRef({ height: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function App() {
     }
   }
 
-  window.onscroll = function() { handleVisibleButton() };
+  window.onscroll = function () { handleVisibleButton() };
 
   const handleScrollUp = () => {
     window.scrollTo({ top: 0 });
@@ -69,14 +69,14 @@ export default function App() {
   return (
     <>
       <Navbar className="position-fixed top-0 z-1 w-100 d-flex justify-content-center p-0">
-        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark rounded-5 mt-2 shadow' : ''} ${isMobile && scrollPosition > 20 ? 'w-75' : 'w-25'}`} fluid>
+        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark-subtle rounded-5 mt-2 shadow' : ''} ${isMobile && scrollPosition > 20 ? 'w-75' : 'w-25'}`} fluid>
           <Nav className="d-flex column-gap-3 mx-auto">
             {navLinks.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `fs-5 text-decoration-none ${isActive ? 'text-info fw-bold transition' : 'text-primary transition'}`
+                  `fs-5 text-decoration-none ${isActive ? 'text-info fw-bold transition' : 'text-light transition'}`
                 }>
                 {label}
               </NavLink>
@@ -88,14 +88,14 @@ export default function App() {
       <GoTop showGoTop={showGoTop} scrollUp={handleScrollUp} />
       <Outlet context={{ height }} />
 
-      <footer className="bg-dark text-primary mt-auto" ref={observedDiv}>
+      <footer className="bg-dark-subtle text-white mt-auto" ref={observedDiv}>
         <span id="footer-height" className={height?.toString()}></span>
         <Container className="" fluid>
           <div className="d-flex justify-content-center">
             <div className="socials d-flex mb-2 column-gap-2">
-              <a className="github fs-3 transition" href="https://github.com/simpelcity"><FaGithub /></a>
-              <a className="discord fs-3 transition" href="https://discord.com/users/760475405194625045"><FaDiscord /></a>
-              <a className="tiktok fs-3 transition" href="https://tiktok.com/@simpelcity"><FaTiktok /></a>
+              <a className="github text-light fs-3 transition" href="https://github.com/simpelcity"><FaGithub /></a>
+              <a className="discord text-light fs-3 transition" href="https://discord.com/users/760475405194625045"><FaDiscord /></a>
+              <a className="tiktok text-light fs-3 transition" href="https://tiktok.com/@simpelcity"><FaTiktok /></a>
             </div>
           </div>
           <div className="d-flex flex-column flex-lg-row align-items-md-center justify-content-lg-center footer-bottom">

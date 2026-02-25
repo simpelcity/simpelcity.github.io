@@ -35,26 +35,26 @@ export default function FeaturedProjectsGrid({ langIcons }: FeaturedProjectsGrid
   return (
     <>
       {
-        visibleRepos.map((repo, index) => (
+        visibleRepos.map((repo) => (
           <Col key={repo.id} xs={12} md={6} xl={4}>
-            <Card className="h-100 rounded-0 border-0 shadow bg-dark text-primary repo-card">
+            <Card className="h-100 rounded-0 border-0 shadow bg-dark-subtle repo-card">
               <Card.Body className="d-flex flex-column">
                 <Card.Title className="mb-2">
                   <a
-                    href={`/projects/${index + 1}`}
-                    className="text-decoration-none fs-3 fw-bold repo-name transition"
+                    href={`/projects/${repo.name}`}
+                    className="text-white text-decoration-none fs-3 fw-bold repo-name transition"
                   >
                     {repo.name}
                   </a>
                 </Card.Title>
-                <Card.Text className="text-secondary flex-grow-1">
+                <Card.Text className="text-info flex-grow-1">
                   {repo.description || "No description provided."}
                 </Card.Text>
                 <div className="d-flex justify-content-center gap-3 mt-auto">
                   <a
                     href={`${userHome}?tab=repositories&q=&language=${repo.language}`}
                     target="_blank"
-                    className="text-decoration-none d-flex gap-1 repo-lang">
+                    className="text-white text-decoration-none d-flex gap-1 repo-lang">
                     <span className={`${repo.language === 'PHP' ? 'fs-3' : ''} d-flex align-items-center`}>
                       {langIcons[repo.language || "Language unknown"]}
                     </span>
@@ -64,7 +64,7 @@ export default function FeaturedProjectsGrid({ langIcons }: FeaturedProjectsGrid
                     <a
                       href={repo.homepage}
                       target="_blank"
-                      className="text-decoration-none d-flex align-items-center gap-1 repo-site">
+                      className="text-white text-decoration-none d-flex align-items-center gap-1 repo-site">
                       <span className="d-flex align-items-center">{browserIcons[browser]}</span>
                       <p className="my-auto site-name transition">Site</p>
                     </a>
@@ -77,7 +77,7 @@ export default function FeaturedProjectsGrid({ langIcons }: FeaturedProjectsGrid
       }
       {showSeeMore && (
         <Col xs={12} className="d-flex justify-content-end px-4">
-          <Link to="/projects" className="text-decoration-none fs-5 fw-bold seemore">
+          <Link to="/projects" className="text-secondary text-decoration-none fs-5 fw-bold seemore">
             See more
           </Link>
         </Col>

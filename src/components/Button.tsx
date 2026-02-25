@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline" | "light";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -15,10 +15,10 @@ interface ButtonProps {
 
 export default function BSButton({
   children,
-  border = "primary",
-  text = "primary",
+  border = "light",
+  text = "light",
   classes,
-  variant = "primary",
+  variant = "light",
   size = "md",
   ...props
 }: ButtonProps) {

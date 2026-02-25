@@ -41,13 +41,13 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
         <div className="d-flex align-items-center">
           <span className={iconClass(languageArray[0])}>{langIcons[languageArray[0]]}</span>
           <Dropdown>
-            <Dropdown.Toggle className="p-0 text-decoration-none ms-1 bg-transparent border-0 text-light">
+            <Dropdown.Toggle className="p-0 text-decoration-none ms-1 bg-transparent border-0">
               +{languageArray.length - 1}
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark">
               {languageArray.slice(1).map((lang, idx) => (
                 <Dropdown.Item key={idx} className="d-flex align-items-center gap-2">
-                  <span className={iconClass(lang)}>
+                  <span>
                     {langIcons[lang]}
                   </span>
                   <span>{lang}</span>
@@ -61,8 +61,8 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
   }
 
   return (
-    <Card className="h-100 rounded-0 border-0 shadow bg-dark-subtle text-primary">
-      <Card.Header className="text-primary text-center border border-top-0 border-start-0 border-end-0">
+    <Card className="h-100 rounded-0 border-0 shadow bg-dark text-white">
+      <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Certificates</h2>
       </Card.Header>
       <Card.Body className="d-flex flex-column">
@@ -71,10 +71,10 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
           <Row id="certificates-div" className="fs-4 mb-auto w-100">
             {currentCertificates.map((cert, index) => (
               <Col key={index} xs={12} md={6} className="my-2 px-2">
-                <div className="certificate-item d-flex align-items-center gap-2 bg-dark p-2 h-100">
+                <div className="certificate-item d-flex align-items-center gap-2 bg-dark-subtle p-2 h-100">
                   {cert.language.length > 2 ? languagesDiv(cert.language) : null}
                   {cert.language.length <= 2 ? (Array.isArray(cert.language) ? cert.language : [cert.language]).map((lang, idx) => (
-                    <span key={idx} className={iconClass(lang)}>
+                    <span key={idx} className={iconClass(lang) ? iconClass(lang) + " d-flex text-white" : "d-flex text-white"}>
                       {langIcons[lang]}
                     </span>
                   )) : null}
