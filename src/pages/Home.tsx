@@ -78,7 +78,7 @@ export default function Home() {
       <section id="about" className="d-flex flex-column align-items-center bg-dark-subtle py-5">
         <Col xs={12} md={9} lg={7} className="about d-flex flex-column align-items-center">
           <div className="info-header d-flex flex-column align-items-center">
-            <BsPersonCircle className="icon-person text-light" />
+            <BsPersonCircle className="icon-person" />
             <h1 className="text-secondary">About Me</h1>
           </div>
           <div className="info-content my-4 d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
@@ -115,7 +115,7 @@ export default function Home() {
           </Row>
         </Container>
       </section>
-      <section id="contact" className="text-center text-light bg-dark-subtle p-5" style={{ minHeight: `calc(100vh - ${height}px)` }}>
+      <section id="contact" className="text-center bg-dark-subtle p-5" style={{ minHeight: `calc(100vh - ${height}px)` }}>
         <Row className="d-flex justify-content-center w-100">
           <BsEnvelopePaper className="icon-contact w-auto" />
           <h1 className="mb-3 text-secondary">Contact</h1>

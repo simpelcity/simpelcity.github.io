@@ -36,4 +36,15 @@
 .btn-transparent {
   background-color: transparent !important;
   border: none !important;
+  color: $white !important;
+  &:hover {
+    background-color: transparent !important;
+    border: none !important;
+    color: $white !important;
+    &:active {
+      background-color: transparent !important;
+      border: none !important;
+      color: $white !important;
+    }
+  }
 }

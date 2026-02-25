@@ -69,7 +69,7 @@ export default function App() {
   return (
     <>
       <Navbar className="position-fixed top-0 z-1 w-100 d-flex justify-content-center p-0">
-        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark-subtle rounded-5 mt-2 shadow' : ''} ${isMobile && scrollPosition > 20 ? 'w-75' : 'w-25'}`} fluid>
+        <Container className={`m-0 p-0 d-flex align-items-center py-2 transition ${scrollPosition > 20 ? 'bg-dark-subtle rounded-5 mt-2 shadow' : ''} ${isMobile && scrollPosition > 20 ? 'w-75' : ''} ${!isMobile && scrollPosition > 20 ? 'w-25' : ''}`} fluid>
           <Nav className="d-flex column-gap-3 mx-auto">
             {navLinks.map(({ to, label }) => (
               <NavLink

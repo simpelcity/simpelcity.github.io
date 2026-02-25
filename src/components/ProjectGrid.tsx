@@ -1,4 +1,4 @@
-import { Col, Card } from 'react-bootstrap'
+import { Col, Card, Spinner } from 'react-bootstrap'
 import { browserIcons } from '@/constants/icons'
 import { LangIcons } from '@/types'
 import { useUserRepos } from '@/hooks/useUserRepos';
@@ -15,7 +15,14 @@ export default function ProjectGrid({ langIcons }: ProjectGridProps) {
   const { browser } = useBrowserCheck();
 
   if (loading) {
-    return <p className="fs-2 fw-bold">Loading repositories...</p>;
+    return (
+      <>
+        <div className="text-center">
+          <Spinner animation="border" className="me-2" />
+          <span className="fs-2 fw-bold">Loading repositories...</span>
+        </div>
+      </>
+    );
   }
 
   if (error === 'Failed to fetch repositories (403)') {

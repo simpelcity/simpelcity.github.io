@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState } from 'react'
-import { Container, Badge, Row, Col, Image, Dropdown, Modal } from 'react-bootstrap'
+import { Container, Badge, Row, Col, Image, Dropdown, Modal, Spinner } from 'react-bootstrap'
 import { FaGithub, FaStar, FaCodeBranch, FaCodeFork, FaArrowLeftLong } from "react-icons/fa6";
 import { browserIcons } from '@/constants/icons'
 import { useCurrentProject } from '@/hooks/useCurrentProject';
@@ -22,8 +22,9 @@ export default function ProjectDetail() {
 
   if (loading) {
     return (
-      <section className="d-flex align-items-center justify-content-center mt-5 flex-column" style={{ minHeight: '60vh' }}>
-        <h2>Loading project...</h2>
+      <section className="d-flex align-items-center justify-content-center mt-5 flex-row" style={{ minHeight: '60vh' }}>
+        <Spinner animation="border" className="me-2" />
+        <span className="fs-2 fw-bold">Loading project...</span>
       </section>
     );
   }
@@ -53,18 +54,18 @@ export default function ProjectDetail() {
 
           <div className="d-flex gap-3 mb-4 flex-wrap">
             {project.language && (
-              <Badge bg="secondary" className="fs-6">
-                <a href={`${userHome}?tab=repositories&q=&language=${project.language}`} target="_blank" className="text-decoration-none fw-bold text-light">{project.language}</a>
+              <Badge bg="primary" className="fs-6">
+                <a href={`${userHome}?tab=repositories&q=&language=${project.language}`} target="_blank" className="text-white text-decoration-none fw-bold text-light">{project.language}</a>
               </Badge>
             )}
             <div className="d-flex align-items-center gap-1">
-              <a href={`${userHome}/${project.name}/stargazers`} target="_blank" className="text-decoration-none text-light d-flex align-items-center gap-1">
+              <a href={`${userHome}/${project.name}/stargazers`} target="_blank" className="text-decoration-none text-white d-flex align-items-center gap-1">
                 <FaStar className="text-warning" />
                 <span>{project.stargazers_count}</span>
               </a>
             </div>
             <div className="d-flex align-items-center gap-1">
-              <a href={`${userHome}/${project.name}/forks`} target="_blank" className="text-decoration-none text-light d-flex align-items-center gap-1">
+              <a href={`${userHome}/${project.name}/forks`} target="_blank" className="text-decoration-none text-white d-flex align-items-center gap-1">
                 <FaCodeFork className="text-info" />
                 <span>{project.forks_count}</span>
               </a>
@@ -85,17 +86,17 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          <p className="fs-5 text-secondary mb-4">
+          <p className="fs-5 text-info mb-4">
             {project.description || "No description provided."}
           </p>
 
           {screenshots.length > 0 ? (
             <div className="mb-4">
-              <h5>Screenshots</h5>
+              <h3>Screenshots</h3>
               <Row className="row-gap-4 d-flex justify-content-center">
                 {screenshots.map((screenshot, index) => (
                   <Col key={index} xs={12} md={6} lg={4} role="button" onClick={() => toggleEnlarged(index)}>
-                    <div className="shadow bg-dark-subtle p-3 h-100 d-flex align-items-center">
+                    <div className="shadow bg-dark p-3 h-100 d-flex align-items-center">
                       <Image src={screenshot.url} alt={screenshot.name} fluid rounded />
                     </div>
                   </Col>
@@ -115,7 +116,7 @@ export default function ProjectDetail() {
           </Modal>
 
           <div className="d-flex gap-3 mb-4 flex-wrap">
-            <BSButton variant="primary" size="md" href={project.html_url} target="_blank" classes="d-flex gap-1 text-dark transition">
+            <BSButton variant="light" border="" size="md" href={project.html_url} target="_blank" classes="d-flex gap-1 text-dark transition">
               <span className="d-flex align-items-center fs-5"><FaGithub /></span>
               <p className="my-auto small">View on GitHub</p>
             </BSButton>
