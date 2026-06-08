@@ -6,6 +6,7 @@ import { browserIcons } from '@/constants/icons'
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import { useBrowserCheck } from '@/hooks/useBrowserCheck';
 import BSButton from '@/components/Button'
+import { FaAngleDown } from "react-icons/fa6";
 
 export default function ProjectDetail() {
   const { name } = useParams<{ name: string }>();
@@ -13,6 +14,8 @@ export default function ProjectDetail() {
   const { project, branches, screenshots, loading, error } = useCurrentProject(name || "");
   const { browser } = useBrowserCheck();
   const username = "simpelcity";
+
+  const [isBranchDropdownOpen, setIsBranchDropdownOpen] = useState(false);
 
   const toggleEnlarged = (index: number) => {
     setEnlargedIndex(enlargedIndex === index ? null : index);
@@ -55,29 +58,32 @@ export default function ProjectDetail() {
           <div className="d-flex gap-3 mb-4 flex-wrap">
             {project.language && (
               <Badge bg="primary" className="fs-6">
-                <a href={`${userHome}?tab=repositories&q=&language=${project.language}`} target="_blank" className="text-white text-decoration-none fw-bold text-light">{project.language}</a>
+                <a href={`${userHome}?tab=repositories&q=&language=${project.language}`} target="_blank" className="text-light text-decoration-none fw-bold">{project.language}</a>
               </Badge>
             )}
             <div className="d-flex align-items-center gap-1">
-              <a href={`${userHome}/${project.name}/stargazers`} target="_blank" className="text-decoration-none text-white d-flex align-items-center gap-1">
+              <a href={`${userHome}/${project.name}/stargazers`} target="_blank" className="text-decoration-none text-light d-flex align-items-center gap-1 fw-semibold">
                 <FaStar className="text-warning" />
                 <span>{project.stargazers_count}</span>
               </a>
             </div>
             <div className="d-flex align-items-center gap-1">
-              <a href={`${userHome}/${project.name}/forks`} target="_blank" className="text-decoration-none text-white d-flex align-items-center gap-1">
-                <FaCodeFork className="text-info" />
+              <a href={`${userHome}/${project.name}/forks`} target="_blank" className="text-decoration-none text-light d-flex align-items-center gap-1 fw-semibold">
+                <FaCodeFork className="text-primary" />
                 <span>{project.forks_count}</span>
               </a>
             </div>
             <div className="d-flex align-items-center gap-1">
-              <Dropdown data-bs-theme="dark">
-                <Dropdown.Toggle variant="transparent" id="branches-dropdown" className="d-flex align-items-center gap-1 p-0">
+              <Dropdown data-bs-theme="dark" onToggle={(nextShow) => setIsBranchDropdownOpen(Boolean(nextShow))}>
+                <Dropdown.Toggle variant="transparent" id="branches-dropdown" className="d-flex align-items-center gap-1 p-0 fw-semibold">
                   <FaCodeBranch className="text-success" />
                   <span>{branches.length}</span>
+                  <span className={`ms-1 chevron-rotate-180 ${isBranchDropdownOpen ? 'is-open' : ''}`}>
+                    <FaAngleDown />
+                  </span>
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className="rounded-1 shadow-sm bg-dark-subtle">
                   {branches.map((branch, index) => (
                     <Dropdown.Item key={index} href={branch._links.html} target="_blank">{branch.name}</Dropdown.Item>
                   ))}
@@ -86,7 +92,7 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          <p className="fs-5 text-info mb-4">
+          <p className="fs-5 text-primary mb-4">
             {project.description || "No description provided."}
           </p>
 
@@ -96,7 +102,7 @@ export default function ProjectDetail() {
               <Row className="row-gap-4 d-flex justify-content-center">
                 {screenshots.map((screenshot, index) => (
                   <Col key={index} xs={12} md={6} lg={4} role="button" onClick={() => toggleEnlarged(index)}>
-                    <div className="shadow bg-dark p-3 h-100 d-flex align-items-center">
+                    <div className="shadow-sm bg-dark p-3 h-100 d-flex align-items-center">
                       <Image src={screenshot.url} alt={screenshot.name} fluid rounded />
                     </div>
                   </Col>

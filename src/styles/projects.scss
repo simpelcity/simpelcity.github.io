@@ -1,5 +1,9 @@
-@import "./variables.scss";
+@use "variables" as *;
 
 .bg-blur {
   backdrop-filter: blur(10px);
+}
+
+#branches-dropdown::after {
+  content: none;
 }

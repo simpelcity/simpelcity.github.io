@@ -76,7 +76,7 @@ export default function App() {
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `fs-5 text-decoration-none ${isActive ? 'text-info fw-bold transition' : 'text-light transition'}`
+                  `fs-5 text-decoration-none ${isActive ? 'text-primary fw-bold transition' : 'text-light transition'}`
                 }>
                 {label}
               </NavLink>
@@ -88,7 +88,7 @@ export default function App() {
       <GoTop showGoTop={showGoTop} scrollUp={handleScrollUp} />
       <Outlet context={{ height }} />
 
-      <footer className="bg-dark-subtle text-white mt-auto" ref={observedDiv}>
+      <footer className="bg-dark-subtle text-light mt-auto" ref={observedDiv}>
         <span id="footer-height" className={height?.toString()}></span>
         <Container className="" fluid>
           <div className="d-flex justify-content-center">
@@ -109,12 +109,12 @@ export default function App() {
               <div className="design-div">
                 <p className="design">
                   Designed and developed by{" "}
-                  <a className="simpelcity text-info text-decoration-none fw-bold transition" href="https://github.com/simpelcity">Simpelcity</a>
+                  <a className="simpelcity text-primary text-decoration-none fw-bold transition" href="https://github.com/simpelcity">Simpelcity</a>
                 </p>
               </div>
             </div>
             <div className="hosted-div d-flex justify-content-center">
-              <p className="hosted">Hosted by <a className="githubcom text-info text-decoration-none fw-bold transition" href="https://github.com">github.com</a></p>
+              <p className="hosted">Hosted by <a className="githubcom text-primary text-decoration-none fw-bold transition" href="https://github.com">github.com</a></p>
             </div>
           </div>
         </Container>

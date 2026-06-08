@@ -61,7 +61,7 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
   }
 
   return (
-    <Card className="h-100 rounded-0 border-0 shadow bg-dark text-white">
+    <Card className="h-100 rounded-1 border-0 shadow bg-dark text-light">
       <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Certificates</h2>
       </Card.Header>
@@ -74,11 +74,11 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
                 <div className="certificate-item d-flex align-items-center gap-2 bg-dark-subtle p-2 h-100">
                   {cert.language.length > 2 ? languagesDiv(cert.language) : null}
                   {cert.language.length <= 2 ? (Array.isArray(cert.language) ? cert.language : [cert.language]).map((lang, idx) => (
-                    <span key={idx} className={iconClass(lang) ? iconClass(lang) + " d-flex text-white" : "d-flex text-white"}>
+                    <span key={idx} className={`d-flex text-light ${iconClass(lang) && iconClass(lang)}`}>
                       {langIcons[lang]}
                     </span>
                   )) : null}
-                  <span className="text-start">{cert.name}</span>
+                  <span className="text-start fw-semibold">{cert.name}</span>
                 </div>
               </Col>
             ))}
@@ -98,7 +98,7 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
               <span
                 key={pageNum}
                 onClick={() => goToPage(pageNum)}
-                className={`page-number ${currentPage === pageNum ? 'text-info fw-bold' : ''}`}
+                className={`page-number ${currentPage === pageNum ? 'text-primary fw-bold' : 'fw-semibold'}`}
                 style={{ cursor: 'pointer' }}
               >
                 {pageNum}

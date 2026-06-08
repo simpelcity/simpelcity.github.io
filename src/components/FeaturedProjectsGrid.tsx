@@ -37,17 +37,17 @@ export default function FeaturedProjectsGrid({ langIcons }: FeaturedProjectsGrid
       {
         visibleRepos.map((repo) => (
           <Col key={repo.id} xs={12} md={6} xl={4}>
-            <Card className="h-100 rounded-0 border-0 shadow bg-dark-subtle repo-card">
+            <Card className="h-100 rounded-1 border-0 shadow bg-dark-subtle repo-card">
               <Card.Body className="d-flex flex-column">
                 <Card.Title className="mb-2">
                   <a
                     href={`/projects/${repo.name}`}
-                    className="text-white text-decoration-none fs-3 fw-bold repo-name transition"
+                    className="text-light text-decoration-none fs-3 fw-bold repo-name transition"
                   >
                     {repo.name}
                   </a>
                 </Card.Title>
-                <Card.Text className="text-info flex-grow-1">
+                <Card.Text className="text-primary flex-grow-1 fw-semibold">
                   {repo.description || "No description provided."}
                 </Card.Text>
                 <div className="d-flex justify-content-center gap-3 mt-auto">
@@ -58,7 +58,7 @@ export default function FeaturedProjectsGrid({ langIcons }: FeaturedProjectsGrid
                     <span className={`${repo.language === 'PHP' ? 'fs-3' : ''} d-flex align-items-center`}>
                       {langIcons[repo.language || "Language unknown"]}
                     </span>
-                    <p className="my-auto language-name transition">{repo.language || "Language unknown."}</p>
+                    <p className="my-auto language-name transition fw-semibold">{repo.language || "Language unknown."}</p>
                   </a>
                   {repo.homepage ? (
                     <a

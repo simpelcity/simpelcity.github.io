@@ -35,20 +35,20 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }: CardL
   };
 
   return (
-    <Card className="rounded-0 border-0 shadow bg-dark text-white h-100">
+    <Card className="rounded-1 border-0 shadow-sm bg-dark text-light h-100">
       <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Programming Languages</h2>
       </Card.Header>
       <Card.Body className="d-flex flex-column">
         <div className="flex-grow-1">
           {currentLanguages.map((lang, index) => (
-            <div key={lang.name.toLowerCase()} className={`${lang.name.toLowerCase()} ${index !== currentLanguages.length - 1 ? 'border-bottom border-2 border-info' : ''} ${index === 0 ? 'pb-3' : 'py-3'}`}>
+            <div key={lang.name.toLowerCase()} className={`${lang.name.toLowerCase()} ${index !== currentLanguages.length - 1 ? 'border-bottom border-2 border-primary' : ''} ${index === 0 ? 'pb-3' : 'py-3'}`}>
               <div className="fs-4 fw-medium d-flex justify-content-center align-items-center gap-1 mb-2">
                 <span className={`${sizeIcons(lang)} d-flex`}>{langIcons[lang.name]}</span>
-                <p className="m-0">{lang.name}</p>
+                <p className="m-0 fw-semibold">{lang.name}</p>
               </div>
               <div>
-                <ProgressBar aria-label={lang.name + " progressbar"} className="" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
+                <ProgressBar aria-label={lang.name + " progressbar"} className="rounded-1" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
                   <ProgressBar now={lang.progress} style={{ backgroundColor: lang.color }} />
                 </ProgressBar>
               </div>
@@ -66,7 +66,7 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }: CardL
               <span
                 key={pageNum}
                 onClick={() => goToPage(pageNum)}
-                className={`page-number ${currentPage === pageNum ? 'text-info fw-bold' : ''}`}
+                className={`page-number ${currentPage === pageNum ? 'text-primary fw-bold' : 'fw-semibold'}`}
                 style={{ cursor: 'pointer' }}
               >
                 {pageNum}

@@ -57,38 +57,38 @@ export default function ProjectGrid({ langIcons }: ProjectGridProps) {
       {
         repos.map((repo) => (
           <Col key={repo.id} xs={12} md={6} xl={4}>
-            <Card className="h-100 rounded-0 border-0 shadow bg-dark repo-card text-center">
+            <Card className="h-100 rounded-1 border-0 shadow-sm bg-dark-subtle repo-card text-center">
               <Card.Body className="d-flex flex-column">
                 <Card.Title className="mb-2">
                   <a
                     href={`/projects/${repo.name}`}
-                    className="text-white text-decoration-none fs-3 fw-bold repo-name transition"
+                    className="text-light text-decoration-none fs-3 fw-bold repo-name transition"
                   >
                     {repo.name}
                   </a>
                 </Card.Title>
-                <Card.Text className="text-info flex-grow-1">
+                <Card.Text className="text-primary flex-grow-1 fw-semibold">
                   {repo.description || "No description provided."}
                 </Card.Text>
                 <div className="d-flex justify-content-center gap-3 mt-auto">
                   <a
                     href={`${userHome}?tab=repositories&q=&language=${repo.language}`}
                     target="_blank"
-                    className="text-white text-decoration-none d-flex gap-1 repo-lang">
+                    className="text-light text-decoration-none d-flex gap-1 repo-lang">
                     <span className={`${repo.language === 'PHP' ? 'fs-3' : ''} d-flex align-items-center`}>
                       {langIcons[repo.language || "Language unknown"]}
                     </span>
-                    <p className="my-auto language-name transition">{repo.language || "Language unknown."}</p>
+                    <p className="my-auto language-name transition fw-semibold">{repo.language || "Language unknown."}</p>
                   </a>
                   {repo.homepage ? (
                     <a
                       href={repo.homepage}
                       target="_blank"
-                      className="text-white text-decoration-none d-flex align-items-center gap-1 repo-site">
+                      className="text-light text-decoration-none d-flex align-items-center gap-1 repo-site">
                       <span className="d-flex align-items-center">
                         {browserIcons[browser]}
                       </span>
-                      <p className="my-auto site-name transition">Site</p>
+                      <p className="my-auto site-name transition fw-semibold">Site</p>
                     </a>
                   ) : ""}
                 </div>

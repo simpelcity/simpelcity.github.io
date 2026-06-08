@@ -1,23 +1,20 @@
+@use "variables" as *;
+
 .btn:hover {
   &:active {
     color: $light !important;
-    background-color: $primary !important;
-    border-color: $primary !important;
+    background-color: $primary-active !important;
+    border-color: $primary-active !important;
   }
   color: $light !important;
-  background-color: $primary !important;
-  border-color: $primary !important;
+  background-color: $primary-hover !important;
+  border-color: $primary-hover !important;
 }
 
 .btn-about::after {
   content: "\f107";
   font-family: fontAwesome;
   position: relative;
-}
-
-.btn-about:hover {
-  border-color: $info !important;
-  background-color: transparent !important;
 }
 
 .btn-projects::after {
@@ -36,15 +33,15 @@
 .btn-transparent {
   background-color: transparent !important;
   border: none !important;
-  color: $white !important;
+  color: $light !important;
   &:hover {
     background-color: transparent !important;
     border: none !important;
-    color: $white !important;
+    color: $light !important;
     &:active {
       background-color: transparent !important;
       border: none !important;
-      color: $white !important;
+      color: $light !important;
     }
   }
 }

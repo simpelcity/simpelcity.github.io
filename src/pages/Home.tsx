@@ -67,7 +67,7 @@ export default function Home() {
       <section id="welcome" className="d-flex flex-column align-items-center justify-content-center vh-100">
         <Col xs={12} md={8} lg={6} className="d-flex flex-column align-items-center">
           <h2 className="text-light fs-1">Hey there,</h2>
-          <h1 className="text-info text-center">I'm Simpelcity</h1>
+          <h1 className="text-primary text-center">I'm Simpelcity</h1>
           <h3 className="profession d-flex flex-column flex-md-row mb-4">
             <span className="text-light text-center">Full-stack Student</span>
             <span className="text-light text-center">Front-end Student</span>

@@ -1,11 +1,11 @@
-@import "./variables.scss";
-@import "./buttons.scss";
-@import "./animations.scss";
+@use "variables" as *;
+@use "buttons";
+@use "animations";
 
 body {
   font-family: "Nunito" !important;
-  background-color: $dark-subtle;
-  color: $white !important;
+  background-color: $dark;
+  color: $light !important;
 }
 
 body,
@@ -47,7 +47,7 @@ h1 {
 }
 
 .bg-dark-subtle {
-  --bs-dark-bg-subtle: #1f1f1f;
+  background-color: $dark-subtle !important;
 }
 
 .text-gray {

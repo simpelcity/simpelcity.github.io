@@ -1,8 +1,8 @@
-@import "./variables.scss";
+@use "variables" as *;
 
 #welcome {
-  background: #aeadf0;
-  background: linear-gradient(336deg, $secondary 0%, $dark-subtle 100%);
+  background: $primary;
+  background: linear-gradient(336deg, $dark 0%, $secondary 100%);
 }
 
 .profession span:first-child::before {
@@ -37,7 +37,7 @@
 .repo-name:hover,
 .repo-lang:hover,
 .repo-site:hover {
-  color: $info !important;
+  color: $primary-hover !important;
 }
 
 .icon-contact {
@@ -49,7 +49,7 @@
 }
 
 .form-input:focus {
-  border-color: $secondary !important;
+  border-color: $primary-active !important;
 }
 
 .copyright,
@@ -64,7 +64,7 @@
 .simpelcity:hover,
 .githubcom:hover,
 .seemore:hover {
-  color: $secondary !important;
+  color: $primary-hover !important;
 }
 
 @media (max-width: 576px) {
