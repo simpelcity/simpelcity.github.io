@@ -28,6 +28,7 @@ export const langIcons: Record<string, JSX.Element> = {
   HTML: <i className="devicon-html5-plain colored"></i>,
   Java: <i className="devicon-java-plain colored" style={{ color: "#ffca2c" }}></i>,
   JavaScript: <i className="devicon-javascript-plain colored"></i>,
+  JSON: <i className="devicon-json-plain colored"></i>,
   Julia: <i className="devicon-julia-plain colored"></i>,
   "Jupyter Notebook": <i className="devicon-jupyter-plain colored"></i>,
   Kotlin: <i className="devicon-kotlin-plain colored" style={{ color: "#796bdc" }}></i>,
