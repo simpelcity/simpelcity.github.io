@@ -30,6 +30,12 @@
   font-size: 3.75rem;
 }
 
+@media (min-width: 768px) {
+  .languages, .certificates {
+    min-height: 488px;
+  }
+}
+
 .hide {
   display: none !important;
 }

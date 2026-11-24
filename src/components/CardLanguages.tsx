@@ -35,7 +35,7 @@ export default function CardLanguages({ languages, langIcons, sizeIcons }: CardL
   };
 
   return (
-    <Card className="rounded-1 border-0 shadow-sm bg-dark text-light h-100">
+    <Card className="card-languages rounded-1 border-0 shadow-sm bg-dark text-light h-100">
       <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Programming Languages</h2>
       </Card.Header>

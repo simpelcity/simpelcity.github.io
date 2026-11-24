@@ -6,18 +6,23 @@ import CardCertificates from '@/components/CardCertificates'
 import FeaturedProjectsGrid from '@/components/FeaturedProjectsGrid'
 import ContactForm from "@/components/ContactForm";
 import { useOutletContext } from "react-router-dom";
-import profileImage from '@/assets/images/Wietsegaming.png';
+import profileImage from '@/assets/images/pfp.jpg';
 import { langIcons } from '@/constants/icons'
 import '@/styles/home.scss'
+
+let age = 19
 
 const languages = [
   { name: "CSS", progress: 90, color: "#2965f1" },
   { name: "HTML", progress: 90, color: "#e34c26" },
-  { name: "JavaScript", progress: 65, color: "#f0db4f" },
-  { name: "MySQL", progress: 70, color: "#f29111" },
+  { name: "JavaScript", progress: 75, color: "#f0db4f" },
+  { name: "MySQL", progress: 60, color: "#f29111" },
   { name: "PHP", progress: 80, color: "#787cb5" },
-  { name: "React", progress: 50, color: "#61dafb" },
-  { name: "TypeScript", progress: 40, color: "#3178c6" },
+  { name: "React", progress: 65, color: "#61dafb" },
+  { name: "TypeScript", progress: 60, color: "#3178c6" },
+  { name: "Vue", progress: 40, color: "#42b883" },
+  { name: "PostgreSQL", progress: 50, color: "#336791" },
+  // { name: "Nuxt", progress: 30, color: "#00dc82" }
 ];
 
 function sizeIcons(lang: { name: string; progress: number; color: string }) {
@@ -48,6 +53,8 @@ const certificates = [
   { name: "Object Oriented Programming Intro", language: ["PHP"] },
   { name: "Unit Testing with PHP", language: ["PHP"] },
   { name: "Frontend Development", language: ["React"] },
+  { name: "Scrum", language: [] },
+  { name: "Your Fullstack Framework", language: ["PHP", "Twig"] }
 ]
 
 function iconClass(lang: string) {
@@ -87,7 +94,7 @@ export default function Home() {
             </div>
             <div className="info-about w-75 ps-0 pt-4 ps-md-4">
               <p className="fs-4 m-0">
-                What's up, my name is Wietse. I am 18 years old and I live in the Netherlands. I am currently studying
+                What's up, my name is Wietse. I am {age} years old and I live in the Netherlands. I am currently studying
                 to become a Web Developer.
               </p>
             </div>

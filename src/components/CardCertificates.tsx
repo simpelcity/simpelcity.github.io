@@ -41,7 +41,7 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
         <div className="d-flex align-items-center">
           <span className={iconClass(languageArray[0])}>{langIcons[languageArray[0]]}</span>
           <Dropdown>
-            <Dropdown.Toggle className="p-0 text-decoration-none ms-1 bg-transparent border-0">
+            <Dropdown.Toggle className="p-0 text-decoration-none ms-1 bg-transparent border-0 text-light text-opacity-75 fw-semibold">
               +{languageArray.length - 1}
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark">
@@ -61,7 +61,7 @@ export default function CardCertificates({ certificates, langIcons, iconClass }:
   }
 
   return (
-    <Card className="h-100 rounded-1 border-0 shadow bg-dark text-light">
+    <Card className="card-certificates h-100 rounded-1 border-0 shadow bg-dark text-light">
       <Card.Header className="text-secondary text-center border border-top-0 border-start-0 border-end-0">
         <h2>Certificates</h2>
       </Card.Header>
